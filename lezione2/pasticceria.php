@@ -1,3 +1,3 @@
 <?php
-echo 'pasticceria';
+echo 'pasticceria2';
 ?>
