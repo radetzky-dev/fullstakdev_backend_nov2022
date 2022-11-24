@@ -8,6 +8,7 @@ lines
 // this is a single line comment
 # another comment type
 $name = "Paolo";
+
 echo "Il mio nome è " . $name;
 function print_my_name($name) {
     echo " <strong>Ciao " . $name . "!</strong>";
