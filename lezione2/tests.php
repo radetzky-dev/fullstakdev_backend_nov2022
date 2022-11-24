@@ -12,23 +12,23 @@ echo '<br>RISULTATO '. $myValue."<br>";
 //die();
   ?>
     <p>
-    TIME: <?php echo date('H:i'); ?> <br>DAY <?php echo date('d/m/Y'); ?>
+    TIME: <?php echo date('H:i'); ?> <br>DAY <?php echo date('d/m/Y'); ?><br>
     <?php
     $vero = true;
     $falso = false;
 
-    echo $vero.'<br>'.$falso.'<br>---<br>';
+    echo 'Vero='. $vero.'<br>Falso:'.$falso.'<br>---<br>';
     $vero = 1 && 1;
     echo $vero.'<br>';
     $falso = 1 && 0;
-        echo $falso.'<br>';
+        echo 'FALSO VALE:'.$falso.'<br>';
 
     $vero = 1 || 0;
     $falso = 0 || 0;
 
     echo $vero.'<br>'.$falso.'<br>---<br>';
 
-    echo round(520.34345, 3); 
+    echo round(520.34345, 2);
 
 ?>
     </p>
