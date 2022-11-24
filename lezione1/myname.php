@@ -10,7 +10,7 @@ lines
 $name = "Paolo";
 echo "Il mio nome è " . $name;
 function print_my_name($name) {
-    echo " <strong>Hello " . $name . "!</strong>";
+    echo " <strong>Ciao " . $name . "!</strong>";
 }
 print_my_name($name);
 ?>
