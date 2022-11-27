@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ita">
 <head>
     <title><?php echo "This is the page title"; ?></title>
 </head>
