@@ -7,7 +7,6 @@
     <p>
     TIME: <?php echo date('H:i'); ?> <br>DAY <?php echo date('d/m/Y');
   ?>
-
     </p>
 </body>
 </html>
