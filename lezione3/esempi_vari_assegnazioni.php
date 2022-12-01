@@ -55,12 +55,37 @@ if ($a > $b) {
 } else {
     echo "a non è maggiore di b<br>";
 }
+
+function haiPagatoLeTasse(String $nome)
+{
+    //todo controlli databese
+    //elaborazioni
+    $risultato= true;
+    return $risultato;
+
+}
+
+function haiPresentatoUnico(String $nome)
+{
+    //todo controlli databese
+    //elaborazioni
+    $risultato= true;
+    return $risultato;
+
+}
+
  function foo()
  {
     return true;
  }
 
-$a = (false && foo());
+if (haiPresentatoUnico('paolo') && haiPagatoLeTasse("paolo"))
+{
+    echo 'complimenti hai pagato le tasse';
+    //spedisco mail monopattino
+}
+//true ok fisco - false se devi pagaree
+echo '<hr>';
 echo $a.'<br>';
 $b = (true  || foo());
 echo $b.'<br>';
