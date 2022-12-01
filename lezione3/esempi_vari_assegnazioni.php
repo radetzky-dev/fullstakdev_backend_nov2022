@@ -44,11 +44,15 @@ echo $b.'<br>';
 //TODO
 // due variabili delle casistiche https://www.php.net/manual/en/language.operators.comparison.php
 
+//determinare quale numero sia più grande fra 4 e 3 <=> 
+//1 maggiore il primo, -1 maggiore il secondo e zero se sono uguali
+
 //esempi
 // A e a
 // 1 e "1"
 if ($a > $b)
 {
+    
     echo "a is bigger than b<br>";
 }
 
