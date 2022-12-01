@@ -43,6 +43,10 @@ echo $b.'<br>';
 
 //TODO
 // due variabili delle casistiche https://www.php.net/manual/en/language.operators.comparison.php
+
+//esempi
+// A e a
+// 1 e "1"
 if ($a > $b)
 {
     echo "a is bigger than b<br>";
