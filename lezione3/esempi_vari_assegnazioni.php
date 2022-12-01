@@ -92,4 +92,11 @@ echo $b.'<br>';
 $c = (false and foo());
 echo $c.'<br>';
 $d = (true  or  foo());
-echo $d.'<br>';
+echo $d.'<br><hr>';
+
+$e = ! (false and foo());
+echo 'e '.$e.'<br>';
+var_dump($e);
+$f = ! (true);
+echo 'f '.$f.'<br>';
+var_dump($f);
