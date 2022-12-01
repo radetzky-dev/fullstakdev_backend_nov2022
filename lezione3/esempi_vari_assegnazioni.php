@@ -1,6 +1,5 @@
 <?php
-
-$x= "hello world";
+$x = "hello world";
 $x = null;
 
 //esempio di null
@@ -11,16 +10,16 @@ $a = 5;
 $b = 7;
 echo 'Le mie varibili<br>';
 echo "a = $a  e b = $b <br><hr>";
-echo 'a = '.$a.'  e b = '.$b. '<br><hr>';
+echo 'a = ' . $a . '  e b = ' . $b . '<br><hr>';
 
 echo '<br>Somma<br>';
-echo $a+$b;
+echo $a + $b;
 echo '<br>Sottrazione<br>';
-echo $a-$b;
+echo $a - $b;
 echo '<br>Moltiplicazione<br>';
-echo $a*$b;
+echo $a * $b;
 echo '<br>Divisione<br>';
-echo $a/$b;
+echo $a / $b;
 echo '<br>Modulo <br>';
 echo (5 % 3);
 echo '<br>Incremento<br>';
@@ -33,15 +32,15 @@ $b--;
 echo "a = $a  e b = $b <br><hr>";
 
 echo "<hr><br>";
-echo "Assegnazione<br>";
+echo "Esempi di assegnazione<br>";
 $a = 3;
 $a += 5; // sets $a to 8, as if we had said: $a = $a + 5;
-echo $a.'<br>';
+echo $a . '<br>';
 $b = "Hello ";
 $b .= "There!"; // sets $b to "Hello There!", just like $b = $b . "There!";
-echo $b.'<br>';
+echo $b . '<br>';
 
-//TODO
+//ESERCIZIO
 // due variabili delle casistiche https://www.php.net/manual/en/language.operators.comparison.php
 
 //determinare quale numero sia più grande fra 4 e 3 <=> 
@@ -50,15 +49,9 @@ echo $b.'<br>';
 //esempi
 // A e a
 // 1 e "1"
-if ($a > $b)
-{
-    
-    echo "a is bigger than b<br>";
+echo "Confronto se $a > $b <br>";
+if ($a > $b) {
+    echo "a è maggior di b<br>";
+} else {
+    echo "a non è maggiore di b<br>";
 }
-
-
-
-
-
-
-
