@@ -32,6 +32,22 @@ $a--;
 $b--;
 echo "a = $a  e b = $b <br><hr>";
 
+echo "<hr><br>";
+echo "Assegnazione<br>";
+$a = 3;
+$a += 5; // sets $a to 8, as if we had said: $a = $a + 5;
+echo $a.'<br>';
+$b = "Hello ";
+$b .= "There!"; // sets $b to "Hello There!", just like $b = $b . "There!";
+echo $b.'<br>';
+
+//TODO
+// due variabili delle casistiche https://www.php.net/manual/en/language.operators.comparison.php
+if ($a > $b)
+{
+    echo "a is bigger than b<br>";
+}
+
 
 
 
