@@ -55,3 +55,16 @@ if ($a > $b) {
 } else {
     echo "a non è maggiore di b<br>";
 }
+ function foo()
+ {
+    return true;
+ }
+
+$a = (false && foo());
+echo $a.'<br>';
+$b = (true  || foo());
+echo $b.'<br>';
+$c = (false and foo());
+echo $c.'<br>';
+$d = (true  or  foo());
+echo $d.'<br>';
