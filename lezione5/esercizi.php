@@ -51,3 +51,40 @@ if (!is_null($myNumber)) {
     echo "Il numero vale " . $myNumber . '<br>';
     isRealNumber($myNumber);
 }
+
+
+/** nuovo */
+
+$myNumber = [5, -1, 0];
+$eta = 17;
+$legal = false;
+$age = 21;
+
+
+
+function legalAge($num, $age)
+{
+    if ($num >= $age) {
+        echo "Puoi votare";
+    } else {
+        echo "Sei ancora un poppante, devi aspettare! <br>";
+    }
+}
+
+
+function check($someNumber)
+{
+    foreach ($someNumber as $number) : {
+            if ($number < 0) {
+                echo $number . " e un numero negativo<br>";
+            } elseif ($number > 0) {
+                echo $number . " e un numero positivo <br>";
+            } else {
+                echo $number . " e uguale a 0";
+            }
+        }
+    endforeach;
+}
+
+legalAge($eta, $age);
+check($myNumber);
