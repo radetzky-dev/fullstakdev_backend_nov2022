@@ -22,8 +22,11 @@ if ($eta >= $legalAge) {
 
 //Secondo esercizio
 
-$myNumber = 1;
+$myNumber = -1;
 
+$myNumber = 1 + $myNumber;
+
+echo "Il numero vale ".$myNumber.'<br>';
 
 if (is_int($myNumber)) {
     if ($myNumber > 0) {
