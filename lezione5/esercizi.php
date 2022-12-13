@@ -5,30 +5,23 @@
  * 2) Dato un $myNumber 5, -1, 0 , dire se è positivo, se è negativo o se è zero
  */
 
-
 //primo esercizio
 
-/**  Variabili */
-$eta = 21;
-$legalAge = 18;
+$age = 17;
 
-/** check */
-
-if ($eta >= $legalAge) {
-    echo "Puoi votare!<br>";
+if ($age >= 18 && $age >= 25) {
+    echo " Puoi votare al senato!";
+} elseif ($age >= 18 && $age < 25) {
+    echo "Puoi votare solo alla camera ";
 } else {
-    echo "Non puoi votare! <br>";
+    echo "Non puoi votare.";
 }
 
 //Secondo esercizio
 
-$myNumber = -1;
-
-$myNumber = 1 + $myNumber;
-
-echo "Il numero vale ".$myNumber.'<br>';
-
-if (is_int($myNumber)) {
+/** Check number type */
+function numberType($myNumber)
+{
     if ($myNumber > 0) {
         echo "Il numero è positivo!";
     } elseif ($myNumber < 0) {
@@ -36,6 +29,25 @@ if (is_int($myNumber)) {
     } else {
         echo "Il numero è zero!";
     }
-} else {
-    echo "Non è un numero";
+}
+
+/** Check if is a real number or not */
+function isRealNumber($myNumber)
+{
+    if (is_int($myNumber)) {
+        $risultato = ($myNumber > 0) ? "positivo" : "è 0 oppure negativo";
+        echo 'Il numero è ' . $risultato;
+        numberType($myNumber);
+    } else {
+        echo "Non è un numero";
+    }
+}
+
+/** Main program */
+$myNumber = -1;
+$myNumber = 1 + $myNumber;
+
+if (!is_null($myNumber)) {
+    echo "Il numero vale " . $myNumber . '<br>';
+    isRealNumber($myNumber);
 }
