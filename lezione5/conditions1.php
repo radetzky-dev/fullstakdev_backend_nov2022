@@ -1,9 +1,21 @@
 <?php
+
 /** Discover legal age */
 
 /**  Declare vars */
-$eta = 19;
+$eta = 22;
 $legalAge = 21;
+
+if ($eta > $legalAge)
+    echo "a eta bigger than legalAge<br>";
+
+if ($eta > $legalAge) {
+    echo "Vai!<br>";
+} elseif ($eta == $legalAge) {
+    echo "Che fortuna hai età giusta<br>";
+} else {
+    echo "Sorry! <br>";
+}
 
 /** Check legal age method long  */
 //TODO transform in function
