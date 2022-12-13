@@ -3,7 +3,7 @@
 /** Discover legal age */
 
 /**  Declare vars */
-$eta = 22;
+$eta = 21;
 $legalAge = 21;
 
 if ($eta > $legalAge)
@@ -15,6 +15,20 @@ if ($eta > $legalAge) {
     echo "Che fortuna hai età giusta<br>";
 } else {
     echo "Sorry! <br>";
+}
+
+switch ($eta) {
+    case 18:
+        echo "Giovane";
+        break;
+    case 19:
+        echo "ok";
+        break;
+    case 21:
+        echo "Puoi ordinare da bere";
+        break;
+    default:
+       echo "Sorry non puoi entrare";
 }
 
 /** Check legal age method long  */
