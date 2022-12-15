@@ -52,9 +52,3 @@ var_dump($a === $b); // bool(false)
 echo '<hr>';
 var_dump($a === $d);
 
-//TODO 
-/*
-Write a PHP script to extract the user name from the following email 
-Sample String : 'paolo@example.com'
-Expected Output : 'paolo'
-*/
