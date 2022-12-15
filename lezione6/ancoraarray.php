@@ -1,7 +1,6 @@
 <?php
 
 $myCars = array('bmw', 'mercedes', 'fiat');
-
 $myOtherCars = ['jaguar', 'peugeot', 'ferrari'];
 
 var_dump($myCars);
