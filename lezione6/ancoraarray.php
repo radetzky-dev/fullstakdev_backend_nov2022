@@ -82,3 +82,31 @@ for ($i = 0; $i < count($MyArray); $i++) {
 
 echo '<br>';
 var_dump($MyArray);
+echo '<hr>';
+
+/*
+array(5) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(4) [4]=> int(5) }
+*/
+$x = array(1, 2, 3, 4, 5);
+var_dump($x);
+
+echo '<br>';
+var_dump(array_values($x));
+unset($x[3]);
+/*
+array(5) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [4]=> int(5) }
+*/
+$x = array_values($x);
+
+echo '<br>';
+var_dump($x);
+
+/*
+array(5) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(4) [4]=> int(5) }
+
+array_values
+
+array(4) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [4]=> int(5) }
+
+array(4) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(5) }
+*/
