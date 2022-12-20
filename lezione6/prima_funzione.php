@@ -7,6 +7,7 @@ function sumNumbers(int $x, int $y): void
     echo "Sum of $x and $y is: $z <br>";
 }
 
+
 //array_search(mixed $needle, array $haystack, bool $strict = false): int|string|false
 
 /** sum numbers */
