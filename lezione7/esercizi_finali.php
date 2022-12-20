@@ -13,20 +13,17 @@ function hasAReminder(int $n): int
 
 function isPrimeNumber(int $val, int $myNumber, bool $printNonPrime = true, bool $printPrime = true): void
 {
-   
+
 
     if ($val == 0) {
         if ($printNonPrime) {
-           echo $myNumber . ' is NOT a Prime Number.....' . "<br>";
-          
+            echo $myNumber . ' is NOT a Prime Number.....' . "<br>";
         }
     } else {
         if ($printPrime) {
-           echo $myNumber . ' is a Prime Number..' . "<br>";
-          
+            echo $myNumber . ' is a Prime Number..' . "<br>";
         }
     }
-
 }
 
 function checkPrimeInInterval(int $firstNumber, int $secondNumber): void
