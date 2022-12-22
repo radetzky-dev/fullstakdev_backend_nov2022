@@ -42,3 +42,31 @@ foreach ($array as $arr) {
 2)
 Trovare il maggiore fra 3 numeri
 */
+
+function magg($x, $y, $z)
+{
+    $max = $x;
+
+    if ($x >= $y && $x >= $z) {
+        $max = $x;
+    }
+    if ($y >= $x && $y >= $z) {
+        $max = $y;
+    }
+    if ($z >= $x && $z >= $y) {
+        $max = $z;
+    }
+
+    echo "Maggiore numero among $x, $y and $z is: $max <br>";
+}
+
+magg(100, 50, 25);
+magg(50, 50, 25);
+
+$fruits = array(5, 20, 7, 2);
+sort($fruits);
+
+
+foreach ($fruits as $val) {
+    echo $val."<br>";
+}
