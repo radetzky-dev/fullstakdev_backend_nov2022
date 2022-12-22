@@ -48,11 +48,9 @@ function someFunction()
 
 $functionVariable = 'someFunction';
 
-
 if (is_callable($functionVariable, false, $callable_name)) {
     echo $callable_name();
 }
-
 
 $functionVariable = 'funzioneFinta';
 
