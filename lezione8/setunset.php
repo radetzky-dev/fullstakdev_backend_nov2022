@@ -1,4 +1,5 @@
 <?php
+//import import....
 $var = "my value";
 
 // Something is wronguates as true because $var is set
@@ -38,4 +39,25 @@ if (is_array($valueAr)) {
             echo 'Tipo non riconosciuto<br>';
         }
     }
+}
+
+function someFunction()
+{
+    return 'Chiamato con callable!<br>';
+}
+
+$functionVariable = 'someFunction';
+
+
+if (is_callable($functionVariable, false, $callable_name)) {
+    echo $callable_name();
+}
+
+
+$functionVariable = 'funzioneFinta';
+
+if (is_callable($functionVariable, false, $callable_name)) {
+    echo $callable_name();
+} else {
+    echo "La funzione non esiste";
 }
