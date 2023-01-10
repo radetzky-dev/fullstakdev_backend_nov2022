@@ -54,8 +54,6 @@ foreach ($dates as $date) {
     $suffix = $interval->days > 1 ? 'i' : 'o';
     $prefix = $interval->days > 1 ? 'no' : '';
 
-    //TODO un messaggio di buon compleanno se oggi è il tuo compleanno
-
     if ($interval->days == 0) {
         echo "BUON COMPLEANNO<br>";
     } else {
