@@ -2,16 +2,45 @@
 //TODO scrivere un messaggio se uno dei due valori non è valorizzato
 // creare un altro form che usa il metodo post e visualizzare i dati inviati
 
+
+/**
+ * checkIsNumeric
+ *
+ * @param  mixed $value
+ * @return bool
+ */
+function checkIsNumeric($value): bool
+{
+    if (is_numeric($value)) {
+        return true;
+    } else {
+        echo "ATTENZIONE Il valore inserito non è numerico";
+        return false;
+    }
+}
+
+/**
+ * warnError
+ *
+ * @param  mixed $method
+ * @return void
+ */
+function warnError ($method): void
+{
+    echo "Non tutti i parametri ".$method." sono stati valorizzati";
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET["name"]) || isset($_GET["age"])) {
         echo 'Chiamata GET<br>';
         if ($_GET["name"] != "" && $_GET["age"] != "") {
             echo "Welcome " . $_GET['name'] . "<br />";
-            //altra funzione che controlla age sia numerico
-            echo "You are " . $_GET['age'] . " years old.";
+            if (checkIsNumeric($_GET['age'])) {
+                echo "You are " . $_GET['age'] . " years old.";
+            }
         } else {
-            //funzione unica per messaggio (metodo)
-            echo "Non tutti i parametri GET sono stati valorizzati";
+            warnError("GET");
         }
     } else {
         echo "Pagina appena caricata";
@@ -20,12 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_POST["name"]) || isset($_POST["age"])) {
         echo 'Chiamata POST<br>';
         if ($_POST["name"] != "" && $_POST["age"] != "") {
-        echo "Welcome " . $_POST['name'] . "<br />";
-        //altra funzione che controlla age sia numerico
-        echo "You are " . $_POST['age'] . " years old.";
+            echo "Welcome " . $_POST['name'] . "<br />";
+            if (checkIsNumeric($_POST['age'])) {
+                echo "You are " . $_POST['age'] . " years old.";
+            }
         } else {
-            //funzione unica per messaggio (metodo)
-            echo "Non tutti i parametri POST sono stati valorizzati";
+            warnError("POST");
         }
     } else {
         echo "POST senza parametri";
