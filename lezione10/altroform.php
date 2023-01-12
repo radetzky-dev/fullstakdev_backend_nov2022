@@ -1,4 +1,8 @@
 <?php
+//TODO scrivere un messaggio se uno dei due valori non è valorizzato
+// creare un altro form che usa il metodo post e visualizzare i dati inviati
+
+
 if ($_GET["name"] || $_GET["age"]) {
     echo "Welcome " . $_GET['name'] . "<br />";
     echo "You are " . $_GET['age'] . " years old.";
