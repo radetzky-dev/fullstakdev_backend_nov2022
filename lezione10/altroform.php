@@ -1,8 +1,4 @@
 <?php
-//TODO scrivere un messaggio se uno dei due valori non è valorizzato
-// creare un altro form che usa il metodo post e visualizzare i dati inviati
-
-
 /**
  * checkIsNumeric
  *
@@ -30,8 +26,13 @@ function warnError ($method): void
     echo "Non tutti i parametri ".$method." sono stati valorizzati";
 }
 
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+/**
+ * checkGet
+ *
+ * @return void
+ */
+function checkGet()
+{
     if (isset($_GET["name"]) || isset($_GET["age"])) {
         echo 'Chiamata GET<br>';
         if ($_GET["name"] != "" && $_GET["age"] != "") {
@@ -45,7 +46,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     } else {
         echo "Pagina appena caricata";
     }
-} else {
+}
+
+
+/**
+ * checkPost
+ *
+ * @return void
+ */
+function checkPost()
+{
     if (isset($_POST["name"]) || isset($_POST["age"])) {
         echo 'Chiamata POST<br>';
         if ($_POST["name"] != "" && $_POST["age"] != "") {
@@ -59,6 +69,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     } else {
         echo "POST senza parametri";
     }
+}
+
+//Main
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    checkGet();
+} else {
+    checkPost();
 }
 
 ?>
