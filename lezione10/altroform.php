@@ -2,19 +2,25 @@
 //TODO scrivere un messaggio se uno dei due valori non è valorizzato
 // creare un altro form che usa il metodo post e visualizzare i dati inviati
 
-if ($_POST["name"] || $_POST["age"]) {
-    echo 'Chiamata POST<br>';
-    echo "Welcome " . $_POST['name'] . "<br />";
-    echo "You are " . $_POST['age'] . " years old.";
-} elseif ($_GET["name"] || $_GET["age"]) {
-    echo 'Chiamata GET<br>';
-    echo "Welcome " . $_GET['name'] . "<br />";
-    echo "You are " . $_GET['age'] . " years old.";
-} elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    echo "Pagina appena caricata";
-} else {
-    echo "Chiamata non riconosciuta";
+if (isset($_GET["name"]) || isset ($_GET["age"]))
+{
+    echo "Sono settati";
+    if ($_POST["name"] || $_POST["age"]) {
+        echo 'Chiamata POST<br>';
+        echo "Welcome " . $_POST['name'] . "<br />";
+        echo "You are " . $_POST['age'] . " years old.";
+    } elseif ($_GET["name"] || $_GET["age"]) {
+        echo 'Chiamata GET<br>';
+        echo "Welcome " . $_GET['name'] . "<br />";
+        echo "You are " . $_GET['age'] . " years old.";
+    } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        echo "Pagina appena caricata";
+    } else {
+        echo "Chiamata non riconosciuta";
+    }
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
