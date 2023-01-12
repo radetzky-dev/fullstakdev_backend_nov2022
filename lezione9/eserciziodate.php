@@ -3,12 +3,24 @@ date_default_timezone_set("Europe/Rome");
 echo 'Current time: ' . date('d-m-Y H:i') . "<hr>";
 echo "ESERCIZIO 1<br>";
 
+/**
+ * getCopyright
+ *
+ * @param  mixed $myCompany
+ * @return string
+ */
 function getCopyright(string $myCompany): string
 {
     $year = date('Y', time());
     return "Copyright {$year}  © {$myCompany} ";
 }
 
+/**
+ * getBirthdayCountdown
+ *
+ * @param  mixed $birthdate
+ * @return DateInterval
+ */
 function getBirthdayCountdown(DateTime $birthdate): DateInterval
 {
     $today = new DateTime('now');
@@ -52,7 +64,7 @@ foreach ($dates as $date) {
         DateTime::createFromFormat('j-n-Y', $date)
     );
     $suffix = $interval->days > 1 ? 'i' : 'o';
-    $prefix = $interval->days > 1 ? 'no' : '';
+    $prefix = $interval->days > 1 ? 'no' : '';  
 
     if ($interval->days == 0) {
         echo "BUON COMPLEANNO<br>";

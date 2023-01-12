@@ -54,8 +54,10 @@ function optionize($string) {
   return str_replace(' ', '_', strtolower($string));
 }
 
-
-function float_to_string($float, $precision=10) {
+/**
+ * Convert float number to string
+ */
+function float_to_string($float, $precision=10) : string {
   $float = (float) $float;
   $string = number_format($float, $precision, '.', '');
   $string = rtrim($string, '0');

@@ -1,6 +1,13 @@
 <?php
 
-/** sum numbers */
+
+/**
+ * sumNumbers
+ *
+ * @param  mixed $x
+ * @param  mixed $y
+ * @return void
+ */
 function sumNumbers(int $x, int $y): void
 {
     $z = $x + $y;
@@ -10,12 +17,27 @@ function sumNumbers(int $x, int $y): void
 
 //array_search(mixed $needle, array $haystack, bool $strict = false): int|string|false
 
-/** sum numbers */
+
+/**
+ * sumNumberSimple
+ *
+ * @param  mixed $x
+ * @param  mixed $y
+ * @return int
+ */
 function sumNumberSimple(int $x, int $y): int
 {
     return $x + $y;
 }
 
+
+/**
+ * somma
+ *
+ * @param  mixed $x
+ * @param  mixed $y
+ * @return void
+ */
 function somma($x, $y)
 {
     return $x + $y;
