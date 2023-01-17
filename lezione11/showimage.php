@@ -43,7 +43,7 @@
             }
         }
     }
-    
+
     /**
      * showImages
      *
@@ -64,7 +64,7 @@
             }
         }
     }
-    
+
     /**
      * dirToArray
      *
@@ -90,6 +90,8 @@
     if ($_FILES) {
         uploadFile($_FILES, $myFolder);
         //show all upload files
+    } else {
+        showImages($myFolder);
     }
     ?>
     <form action="showimage.php" method="post" enctype="multipart/form-data">
