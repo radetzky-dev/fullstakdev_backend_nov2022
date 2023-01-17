@@ -64,6 +64,8 @@
     <?php
                 }
             }
+        } else {
+            echo "Nessun risultato da mostrare...";
         }
     }
 
