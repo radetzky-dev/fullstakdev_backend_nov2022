@@ -22,11 +22,12 @@
                 <?php
                 if (isset($_COOKIE["MusaCookie"])) {
                 ?>
-                    <div>Bentornato, <b><?php echo ($_COOKIE["MusaCookie"])  ?></b> la tua sessione è scaduta e ti devi riloggare.</div>
+                    <div>Bentornato, <b><?php echo ($_COOKIE["MusaCookie"])  ?></b> 
+                    la tua sessione è scaduta e ti devi riloggare.</div>
                 <?php
                 }
                 unset($_COOKIE['MusaCookie']);
-                setcookie('MusaCookie', null, -3600, '/');
+                setcookie("MusaCookie", "", time() - 3600);
                 ?>
                 <div class="field-column">
                     <div>
