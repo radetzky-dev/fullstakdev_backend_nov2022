@@ -19,6 +19,15 @@
                     unset($_SESSION["errorMessage"]);
                 }
                 ?>
+                <?php
+                if (isset($_COOKIE["MusaCookie"])) {
+                ?>
+                    <div>Bentornato, <b><?php echo ($_COOKIE["MusaCookie"])  ?></b> la tua sessione è scaduta e ti devi riloggare.</div>
+                <?php
+                }
+                unset($_COOKIE['MusaCookie']);
+                setcookie('MusaCookie', null, -3600, '/');
+                ?>
                 <div class="field-column">
                     <div>
                         <label for="username">Username</label><span id="user_info" class="error-info"></span>
