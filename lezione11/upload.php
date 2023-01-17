@@ -25,7 +25,7 @@ if ($_FILES) {
     echo '<br>';
 
     foreach ($_FILES as $file) {
-
+        // [error] => UPLOAD_ERR_OK  (= 0)
         if (UPLOAD_ERR_OK === $file['error']) {
             $fileName = basename($file['name']);
             echo '<br>->' . $file['tmp_name'];
