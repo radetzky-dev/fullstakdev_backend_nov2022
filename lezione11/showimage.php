@@ -54,13 +54,15 @@
     function showImages($myFolder, $myLastImage = "")
     {
         echo "Mostro le immagini caricate:<br>";
-        $images = (dirToArray(__DIR__ . "/" . $myFolder));
-        foreach ($images as $key => $value) {
-            //TODO if value = myLastImage -> hai caricato questa immagine
-            if ((str_ends_with($value, '.png')) || (str_ends_with($value, '.jpg'))) {
+        $images = dirToArray(__DIR__ . "/" . $myFolder);
+        if (is_array($images)) {
+            foreach ($images as $key => $value) {
+                //TODO if value = myLastImage -> hai caricato questa immagine
+                if ((str_ends_with($value, '.png')) || (str_ends_with($value, '.jpg'))) {
     ?>
-                <img src="<?= $myFolder . '/' . $value; ?>" alt="<?= $value; ?>" />
+                    <img src="<?= $myFolder . '/' . $value; ?>" alt="<?= $value; ?>" />
     <?php
+                }
             }
         }
     }
