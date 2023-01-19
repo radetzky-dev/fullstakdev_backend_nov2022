@@ -1,7 +1,6 @@
 <?php
 include "inc/header.php";
 ?>
-
 <body>
     <div>
         <form action="login-action.php" method="post" id="frmLogin">
@@ -52,7 +51,4 @@ include "inc/header.php";
             </div>
         </form>
     </div>
-    <script src="js/bootstrap.min.js"></script>
-</body>
-
-</html>
+   <?php include "inc/footer.php"; ?>
