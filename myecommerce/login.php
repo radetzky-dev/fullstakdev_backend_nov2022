@@ -1,11 +1,7 @@
 <?php
-session_start();
+include "inc/header.php";
 ?>
-<html>
-<head>
-    <title>User Login</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-</head>
+
 <body>
     <div>
         <form action="login-action.php" method="post" id="frmLogin">
@@ -50,9 +46,13 @@ session_start();
                         <input type="submit" name="login" value="Login" class="btnLogin"></span>
                     </div>
                 </div>
+                <div class=field-column>
+                    <a href="#">Password smarrita?</a>|<a href="#">Registrati</a>
+                </div>
             </div>
         </form>
     </div>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
