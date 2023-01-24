@@ -7,9 +7,7 @@
     <container>
         <div class="container">
             <h3>My App</h3>
-
             <form action="login-action.php" method="post" id="frmLogin">
-
                 <?php
                 if (isset($_SESSION["errorMessage"])) {
                 ?>
