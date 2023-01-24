@@ -1,17 +1,13 @@
 <?php
-require_once 'inc/checker.php';
+include "inc/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyEcommerce</title>
-</head>
-<body>
-    <?php echo "welcome"; ?>
-</body>
-</html>
+<!--- nav bar  pippo.php-->
+<?php
+echo "Ciao, " . $_SESSION["userInfo"] . "<br>";
+echo "Sei loggato con userId " . $_SESSION["userId"];
 
+setcookie("MusaCookie", $_SESSION["userInfo"]);
+?>
+<a href="logout.php">Esegui logout</a>
 
+<?php include "inc/footer.php"; ?>
