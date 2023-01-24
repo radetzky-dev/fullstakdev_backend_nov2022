@@ -1,12 +1,12 @@
-<?php
-include "inc/header.php";
-?>
-
+<html>
+<head>
+    <title>App name</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
 <body>
     <container>
         <div class="container">
             <h3>My App</h3>
-
 
             <form action="login-action.php" method="post" id="frmLogin">
 

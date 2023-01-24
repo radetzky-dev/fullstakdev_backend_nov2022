@@ -15,5 +15,5 @@ if (!empty($_POST["login"])) {
         $_SESSION["errorMessage"] = "Invalid Credentials";
     }
 
-   header("Location: index.php");
+   header("Location: ./index.php");
 }
