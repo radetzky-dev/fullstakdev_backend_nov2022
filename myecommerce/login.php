@@ -3,56 +3,54 @@ include "inc/header.php";
 ?>
 
 <body>
-        <container>
-            <div class="container">
-                <form action="login-action.php" method="post" id="frmLogin">
-                    <div class="demo-table">
-                        <div class="form-head">Login</div>
-                        <?php
-                        if (isset($_SESSION["errorMessage"])) {
-                        ?>
-                            <div class="error-message"><?php echo $_SESSION["errorMessage"]; ?></div>
-                        <?php
-                            unset($_SESSION["errorMessage"]);
-                        }
-                        ?>
-                        <?php
-                        if (isset($_COOKIE["MusaCookie"])) {
-                        ?>
-                            <div>Bentornato, <b><?php echo $_COOKIE["MusaCookie"]  ?></b>
-                                la tua sessione è scaduta e ti devi riloggare.</div>
-                        <?php
-                        }
-                        unset($_COOKIE['MusaCookie']);
-                        setcookie("MusaCookie", "", time() - 3600);
-                        ?>
-                        <div class="field-column">
-                            <div>
-                                <label for="username">Username</label><span id="user_info" class="error-info"></span>
-                            </div>
-                            <div>
-                                <input name="user_name" id="user_name" type="text" class="demo-input-box" required>
-                            </div>
-                        </div>
-                        <div class="field-column">
-                            <div>
-                                <label for="password">Password</label><span id="password_info" class="error-info"></span>
-                            </div>
-                            <div>
-                                <input name="password" id="password" type="password" class="demo-input-box" required>
-                            </div>
-                        </div>
-                        <div class=field-column>
-                            <div>
-                                <input type="submit" name="login" value="Login" class="btnLogin"></span>
-                            </div>
-                        </div>
-                        <div class=field-column>
-                            <a href="#">Password smarrita?</a>|<a href="#">Registrati</a>
-                        </div>
-                    </div>
-                </form>
+    <container>
+        <div class="container">
+            <h3>My App</h3>
 
-            </div>
-        </container>
+
+            <form action="login-action.php" method="post" id="frmLogin">
+
+                <?php
+                if (isset($_SESSION["errorMessage"])) {
+                ?>
+                    <div class="error-message"><?php echo $_SESSION["errorMessage"]; ?></div>
+                <?php
+                    unset($_SESSION["errorMessage"]);
+                }
+                ?>
+                <?php
+                if (isset($_COOKIE["MusaCookie"])) {
+                ?>
+                    <div>Bentornato, <b><?php echo $_COOKIE["MusaCookie"]  ?></b>
+                        la tua sessione è scaduta e ti devi riloggare.</div>
+                <?php
+                }
+                unset($_COOKIE['MusaCookie']);
+                setcookie("MusaCookie", "", time() - 3600);
+                ?>
+
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label><span id="user_info" class="error-info"></span>
+                    <input name="user_name" id="user_name" type="text" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label><span id="password_info" class="error-info"></span>
+                    <input name="password" id="password" type="password" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <div>
+                        <input type="submit" name="login" value="Login" class="btn btn-primary"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <a href="#">Password smarrita?</a>|<a href="#">Registrati</a>
+                </div>
+
+            </form>
+
+
+        </div>
+    </container>
     <?php include "inc/footer.php"; ?>
