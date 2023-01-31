@@ -6,17 +6,17 @@ include "inc/functions.php";
 
 <container>
     <div class="container">
-     
+
         <h3>General store</h3>
 
         <?php
-            $result = readFileJson("data/products.json");
-            echo "<pre>";
-            print_r($result);
-            echo "<pre>";
+        $result = readFileJson("data/products.json");
 
-            //TODO mostrare oggetti
-            //TODO in insert : arricchire con altre info qta, id
+
+
+
+        //TODO mostrare oggetti
+        //TODO in insert : arricchire con altre info qta, id
         ?>
         <table class="table table-bordered">
             <thead thead class="thead-dark">
@@ -25,10 +25,18 @@ include "inc/functions.php";
                     <th>Descrizione</th>
                     <th>Prezzo</th>
                     <th>Categoria</th>
-                    <th>Buy</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <?php
+                foreach ($result as $key => $value) {
+                    # code...
+                    ?><tr><td> <?=$value['product'];?></td><td><?=$value['description'];?></td><td></td><td></td></tr>
+                    <?php
+                }
+                ?>
+
+            </tbody>
 
             </tbody>
         </table>
