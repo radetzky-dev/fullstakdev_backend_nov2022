@@ -12,9 +12,6 @@ include "inc/functions.php";
         <?php
         $result = readFileJson("data/products.json");
 
-
-
-
         //TODO mostrare oggetti
         //TODO in insert : arricchire con altre info qta, id
         ?>
@@ -30,14 +27,10 @@ include "inc/functions.php";
             <tbody>
                 <?php
                 foreach ($result as $key => $value) {
-                    # code...
                     ?><tr><td> <?=$value['product'];?></td><td><?=$value['description'];?></td><td></td><td></td></tr>
                     <?php
                 }
                 ?>
-
-            </tbody>
-
             </tbody>
         </table>
     </div>
