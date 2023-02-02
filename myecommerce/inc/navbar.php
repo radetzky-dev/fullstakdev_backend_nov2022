@@ -16,19 +16,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
-
                 <li>
                 <div class="nav-link" ><?php echo "Ciao, " . $_SESSION["userInfo"];?></div>
                 </li>
- 
-
                 <li class="nav-item">
                 <a class="nav-link" href="logout.php">Logout</a>       
                 </li>
-
-
-                
             </ul>
         </div>
     </div>
 </nav>
+

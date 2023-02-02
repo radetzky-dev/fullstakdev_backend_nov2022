@@ -10,3 +10,8 @@ if (empty($_SESSION["userId"])) {
     <title>App name</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
+<body>
+    <?php include "navbar.php"; ?>
+
+ 
+    

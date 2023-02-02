@@ -1,11 +1,14 @@
 <?php
-include "inc/header.php";
-include "inc/navbar.php";
 include "inc/functions.php";
+include "inc/header.php";
 ?>
+<main>
 
-<container>
     <div class="container">
+
+//bruno
+        <?= showProducts(readFileJson("data/products.json")); ?>
+
 
         <h3>General store</h3>
 
@@ -33,8 +36,14 @@ include "inc/functions.php";
                 ?>
             </tbody>
         </table>
+main
     </div>
-</container>
 
 
-<?php include "inc/footer.php"; ?>
+</main>
+</body>
+<?php include "inc/footer.php";  ?> 
+
+
+
+
