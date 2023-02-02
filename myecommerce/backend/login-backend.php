@@ -14,7 +14,8 @@ if (!empty($_POST["login"])) {
 
     if (!$isLoggedIn) {
         $_SESSION["errorMessage"] = "Invalid Credentials";
+        //ti deve ripotare a loginbackend.php
     }
-
+    //SOLO SE LOGGATO CORRETTAMENTE VA ALLA INDEX
    header("Location: ./index.php");
 }

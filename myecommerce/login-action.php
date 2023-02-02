@@ -1,23 +1,26 @@
 <?php
+include "inc/functions.php";
+
 if (!empty($_POST["login"])) {
     session_start();
     $username = $_POST["user_name"];
     $password = $_POST["password"];
 
     $isLoggedIn = false;
-    //Readfile customers.json
+    $customersArray = readFileJson("data/customers.json");
 
-    //check if usermane e passoword corrispondo
-
-    if ($username === "test" && $password === "test") {
-        $isLoggedIn = true;
-        $_SESSION["userId"] = "1"; //mettere nuovo
-        $_SESSION["userInfo"] = "Mario Rossi"; //mettere nuovo
+    foreach ($customersArray as $key => $userdata) {
+        if (
+            $userdata['username'] === $username &&
+            $userdata['password'] === $password
+        ) {
+            $isLoggedIn = true;
+            $_SESSION["userId"] = $userdata['id']; //mettere nuovo
+            $_SESSION["userInfo"] = $userdata['name'] . ' ' . $userdata['surname'];
+        }
     }
-
     if (!$isLoggedIn) {
         $_SESSION["errorMessage"] = "Invalid Credentials";
     }
-
-   header("Location: ./index.php");
+    header("Location: ./index.php");
 }
