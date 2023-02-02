@@ -1,13 +1,13 @@
 <html>
 <head>
-    <title>App name</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <title>Backend</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <container>
         <div class="container">
             <h3>My App</h3>
-            <form action="login-action.php" method="post" id="frmLogin">
+            <form action="login-backend.php" method="post" id="frmLogin">
                 <?php
                 if (isset($_SESSION["errorMessage"])) {
                 ?>
@@ -16,18 +16,7 @@
                     unset($_SESSION["errorMessage"]);
                 }
                 ?>
-                <?php
-                if (isset($_COOKIE["MusaCookie"])) {
-                ?>
-                    <div>Bentornato, <b><?php echo $_COOKIE["MusaCookie"]  ?></b>
-                        la tua sessione è scaduta e ti devi riloggare.</div>
-                <?php
-                }
-                unset($_COOKIE['MusaCookie']);
-                setcookie("MusaCookie", "", time() - 3600);
-                ?>
-
-
+           
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label><span id="user_info" class="error-info"></span>
                     <input name="user_name" id="user_name" type="text" class="form-control" required>
@@ -41,13 +30,9 @@
                     <div>
                         <input type="submit" name="login" value="Login" class="btn btn-primary"></span>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <a href="#">Password smarrita?</a>|<a href="#">Registrati</a>
-                </div>
-
+            </div>
             </form>
 
         </div>
     </container>
-    <?php include "inc/footer.php"; ?>
+    <?php include "../inc/footer.php"; ?>

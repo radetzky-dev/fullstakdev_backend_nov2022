@@ -5,7 +5,7 @@ include "inc/navbar.php";
 
 <container>
     <div class="container">
-        <h3>Insert product</h3>
+        <h3>Gestione prodotto (va anche in update)</h3>
 
         <form action="savedata.php" method="post" id="frmLogin">
                 <div class="mb-3">
@@ -22,7 +22,7 @@ include "inc/navbar.php";
                 </div>
                 <div class="mb-3">
                     <label for="product_prize" class="form-label">Prezzo</label>
-                    <input name="product_prize" id="product_prize" type="number" class="form-control" required>
+                    <input name="product_prize" id="product_prize" type="number" step="0.1" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Descrizione</label>

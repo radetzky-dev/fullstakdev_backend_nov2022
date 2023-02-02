@@ -8,33 +8,20 @@
  */
 function showProducts($render)
 {
-    $table = '<div>
-    <table class="table table-bordered">
-    <thead thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Descrizione</th>
-            <th>QTY</th>
-            <th>Prezzo</th>
-            <th>Ctegoria</th>
-        </tr>
-    </thead>
-   <tbody>';
-   
+    $bodyTable = "";
     if (is_array($render) || is_object($render)) {
         foreach ($render as $value => $key) {
-
-            return $table .=  '<tr>
+            $bodyTable = $bodyTable .
+                '<tr>
                     <td>' . $key['product_code'] . '</td>
                     <td>' . $key['product'] . '</td>
                     <td>' . $key['description'] . '</td>
                     <td>' . $key['product_q'] . '</td>
                     <td>' . $key['product_prize'] . '</td>
-                    <th>' . $key['category'] . '</td>
+                    <td>' . $key['category'] . '</td>
+                    <td><button class="btn btn-primary">MODIFICA</button><button class="btn btn-danger">ELIMINA (chiede conferma js) </button></td>
                 </tr>';
         }
-        '</tbody></table></div>';
     }
+    return $bodyTable;
 }
-

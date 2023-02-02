@@ -11,7 +11,7 @@ if (empty($_SESSION["userId"])) {
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <?php include "navbar.php"; ?>
+   
 
  
     

@@ -5,14 +5,11 @@ if (!empty($_POST["login"])) {
     $password = $_POST["password"];
 
     $isLoggedIn = false;
-    //Readfile customers.json
-
-    //check if usermane e passoword corrispondo
-
     if ($username === "test" && $password === "test") {
         $isLoggedIn = true;
-        $_SESSION["userId"] = "1"; //mettere nuovo
-        $_SESSION["userInfo"] = "Mario Rossi"; //mettere nuovo
+        $_SESSION["userId"] = "1";
+        $_SESSION["isAdmin"] = true;
+        $_SESSION["userInfo"] = "Mario Rossi";
     }
 
     if (!$isLoggedIn) {
