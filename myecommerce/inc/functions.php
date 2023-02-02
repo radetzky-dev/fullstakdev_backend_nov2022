@@ -1,4 +1,5 @@
 <?php
+require 'generateTables.php';
 /**
  * updateFileJson
  *
@@ -32,3 +33,6 @@ function readFileJson(string $path): array | null
         return null;
     }
 }
+
+
+    

@@ -4,7 +4,7 @@ require_once "inc/functions.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<pre>";
-    print_r($_REQUEST);
+    echo($_SERVER['REQUEST_METHOD']);
     echo "</pre>";
 
     //leggo il file
@@ -17,5 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = updateFileJson($newProduct, "data/products.json");
     $newProduct = readFileJson("data/products.json");
 }
+
 header("Location: index.php");
 
