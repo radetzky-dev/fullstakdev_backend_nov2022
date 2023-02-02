@@ -1,1 +1,11 @@
-[{"product":"airmax","product_code":"1","product_q":"20","product_prize":"239","description":"Scarpe Nike Airmax , er meglio del meglio!","category":"scarpe","login":"Invia"}]
+[
+  {
+    "product": "airmax",
+    "product_code": "1",
+    "product_q": "20",
+    "product_prize": "239",
+    "description": "Scarpe Nike Airmax , er meglio del meglio!",
+    "category": "scarpe",
+    "login": "prova"
+  }
+]
