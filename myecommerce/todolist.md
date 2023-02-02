@@ -5,4 +5,4 @@ TO DO LIST
 - ADMIN : vedono\gestiscono i clienti customers - CRUD
 - marketplace visibile da tutti
 - carrello (CUSTOMERS)
-- PAY (per comrare devono iscriversi e\o loggarsi)
+- PAY (per comprare devono iscriversi e\o loggarsi)

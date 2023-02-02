@@ -19,7 +19,8 @@ function showProducts($render)
                     <td>' . $key['product_q'] . '</td>
                     <td>' . $key['product_prize'] . '</td>
                     <td>' . $key['category'] . '</td>
-                    <td><button class="btn btn-primary">MODIFICA</button><button class="btn btn-danger">ELIMINA (chiede conferma js) </button></td>
+                    <td><button class="btn btn-primary" onclick="modifyProduct(\''.$key['product_code'].'\')">MODIFICA</button><button class="btn btn-danger">ELIMINA (chiede conferma js) </button></td>
+                    <td><a href="insert_product.php?id=\''.$key['product_code'].'\'">MODIFICA</a><button class="btn btn-danger">ELIMINA (chiede conferma js) </button></td>
                 </tr>';
         }
     }

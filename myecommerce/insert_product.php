@@ -1,6 +1,15 @@
 <?php
 include "inc/header.php";
 include "inc/navbar.php";
+
+//se chiamata con un id lo pesca dal file e popola i campi qui sotto
+if (!empty($_GET["id"])) {
+    echo "Chiamata arrivata";
+    //TODO
+    //leggere file, pescare dato con id indicato e poi mostralo nei campi
+
+}
+
 ?>
 
 <container>

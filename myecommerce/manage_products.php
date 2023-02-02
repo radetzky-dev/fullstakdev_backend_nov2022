@@ -6,6 +6,13 @@ include "inc/generateTables.php";
 ?>
 
 <container>
+    <script>
+        function modifyProduct(id)
+        {
+            alert ("Modifico id "+id);
+            //chiamare la pagina insert_product.php con un id
+        }
+        </script>
     <div class="container">
         <h3>Gestisci prodotti (SOLO ADMIN LO VEDE)</h3>
         <div>
@@ -17,7 +24,7 @@ include "inc/generateTables.php";
                         <th>Descrizione</th>
                         <th>QTY</th>
                         <th>Prezzo</th>
-                        <th>Ctegoria</th>
+                        <th>Categoria</th>
                     </tr>
                 </thead>
                 <tbody>
