@@ -32,7 +32,7 @@ if (!empty($_GET["id"])) {
             </div>
             <div class="mb-3">
                 <label for="product_code" class="form-label">Codice prodotto</label>
-                <input name="product_code" id="product_code" type="text" value="<?php if (!empty($currentProduct)) echo $currentProduct['product_code'] ?>" class="form-control" required>
+                <input name="product_code" id="product_code" type="text" value="<?php if (!empty($currentProduct)) echo $currentProduct['product_code'] ?>" class="form-control" required <?php if (!empty($currentProduct)) {?> readonly <?php } ?>>
             </div>
             <div class="mb-3">
                 <label for="product_q" class="form-label">Quantità</label>
