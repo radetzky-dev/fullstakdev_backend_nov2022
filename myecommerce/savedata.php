@@ -4,19 +4,30 @@ require_once "inc/functions.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<pre>";
-    echo($_SERVER['REQUEST_METHOD']);
+    echo ($_SERVER['REQUEST_METHOD']);
     echo "</pre>";
 
     //leggo il file
-    $newProduct = readFileJson("data/products.json");
-    
-    if ($newProduct == null) {
-        $newProduct = array();
+    $productsList = readFileJson("data/products.json");
+
+    //Se non è presente alcun prodotto creo un array vuoto
+    if ($productsList == null) {
+        $productsList = array();
     }
-    $newProduct[] = $_REQUEST;
-    $result = updateFileJson($newProduct, "data/products.json");
-    $newProduct = readFileJson("data/products.json");
+
+    //Setto condizione di update
+    $itemUpdate = false;
+
+    foreach ($productsList as $key => $product) {
+        if ($product['product_code'] == $_POST["product_code"]) {
+            unset($productsList[$key]);
+        }
+    }
+
+    $productsList[] = $_REQUEST;    
+
+    //Aggiorno il file json con i nuovi dati inseriti
+    $result = updateFileJson($productsList, "data/products.json");
 }
 
 header("Location: index.php");
-

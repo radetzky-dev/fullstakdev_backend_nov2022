@@ -1,5 +1,6 @@
 TO DO LIST
 
+- mettere un id per i prodotti
 - creare form di registrazione che salva i dati nella tabella customers
 - il menù insert product visibile solo agli ADMIN - CRUD
 - ADMIN : vedono\gestiscono i clienti customers - CRUD
