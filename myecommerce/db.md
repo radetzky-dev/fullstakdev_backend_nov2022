@@ -1,14 +1,14 @@
 TABLES
 MarketPlaceMusa.sql
 
-Customers
-id PK SMALLINT UNSIGNED
+Customer
+des
 Name varchar(35)
 Surname varchar (45)
 username varchar (16)
 pwd varchar (16)
 email varchar (45)
-id_address FK SMALLINT
+
 
 Users (backend ADMIN)
 id PK
@@ -17,29 +17,47 @@ Surname
 username
 pwd
 email
-id_address FK
+
 
 Products
 id_prod PK
 Name
 Price DECIMAL (10.2)
-Quantity SMALLINT UNSIGNED
+Quantity tin UNSIGNED
 description
 photo
-cat_id FK -> id_cat Categories
+cat_id FK -> id_cat Categories tinyint
 
-Catergories (alimentar, elettrinica...)
+ALTER TABLE product
+  ADD CONSTRAINT fk_product_category
+    FOREIGN KEY (category_id) REFERENCES category (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT;
+
+    ALTER TABLE Orders
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+
+Category (alimentar, elettrinica...)
 id_cat  PK
 name
 description
 
-Orders
-id_order PK 
+Order
+id PK 
 order_num Feb1-53
-orderdate timestamp
 payed 
-payedate
-customers_id FK -> id_customers
+payedatedes
+customers_id FK -> id_customers smallint
+
+orderdate timestamp
+last_update
+
+ALTER TABLE orders
+  ADD CONSTRAINT fk_orders_customers
+    FOREIGN KEY (customer_id) REFERENCES customer (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT;
 
 Esempio:
 4
@@ -56,6 +74,14 @@ Mario Rossi via verdi,5  Milano
     order_id FK -> id order
     sellprice
     quantity
+    creation_date
+    last_update
+
+    ALTER TABLE order_details
+  ADD CONSTRAINT fk_orderdetails_order
+    FOREIGN KEY (order_id) REFERENCES orders (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT;
 
     3 banane a 1 euro l'una
     1 pc a 999 
