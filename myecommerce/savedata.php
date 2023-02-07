@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    $productsList[] = $_REQUEST;    
+    $productsList[] = $_REQUEST;
 
     //Aggiorno il file json con i nuovi dati inseriti
     $result = updateFileJson($productsList, "data/products.json");
