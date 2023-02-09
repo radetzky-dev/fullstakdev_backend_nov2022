@@ -3,10 +3,11 @@ include "inc/functions.php";
 include "inc/header.php";
 include "inc/navbar.php";
 
+include "inc/check_is_admin.php";
+
 $action = "Inserisci prodotto";
 //se chiamata con un id lo pesca dal file e popola i campi qui sotto
 if (!empty($_GET["id"])) {
-
     //leggere file, pescare dato con id indicato e poi mostralo nei campi
     $currentProduct = null;
 

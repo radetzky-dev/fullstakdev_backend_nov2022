@@ -6,8 +6,8 @@
 <body>
     <container>
         <div class="container">
-            <h3>My App</h3>
-            <form action="login-backend.php" method="post" id="frmLogin">
+            <h3>Login</h3>
+            <form action="check_login_admin.php" method="post" id="frmLogin">
                 <?php
                 if (isset($_SESSION["errorMessage"])) {
                 ?>

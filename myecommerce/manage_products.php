@@ -3,18 +3,20 @@ include "inc/header.php";
 include "inc/navbar.php";
 include "inc/functions.php";
 include "inc/generateTables.php";
+
+include "inc/check_is_admin.php";
+
 ?>
 
 <container>
     <script>
-        function modifyProduct(id)
-        {
-            alert ("Modifico id "+id);
+        function modifyProduct(id) {
+            alert("Modifico id " + id);
             //chiamare la pagina insert_product.php con un id
         }
-        </script>
+    </script>
     <div class="container">
-        <h3>Gestisci prodotti (SOLO ADMIN LO VEDE)</h3>
+        <h3>Gestisci prodotti</h3>
         <div>
             <table class="table table-bordered">
                 <thead thead class="thead-dark">
@@ -25,6 +27,7 @@ include "inc/generateTables.php";
                         <th>QTY</th>
                         <th>Prezzo</th>
                         <th>Categoria</th>
+                        <th>Operazioni</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -5,11 +5,11 @@ if (!empty($_POST["login"])) {
     $password = $_POST["password"];
 
     $isLoggedIn = false;
-    if ($username === "test" && $password === "test") {
+    if ($username === "admin" && $password === "admin") {
         $isLoggedIn = true;
         $_SESSION["userId"] = "1";
         $_SESSION["isAdmin"] = true;
-        $_SESSION["userInfo"] = "Mario Rossi";
+        $_SESSION["userInfo"] = "ADMIN CEO";
     }
 
     if (!$isLoggedIn) {
@@ -17,5 +17,5 @@ if (!empty($_POST["login"])) {
         //ti deve ripotare a loginbackend.php
     }
     //SOLO SE LOGGATO CORRETTAMENTE VA ALLA INDEX
-   header("Location: ./index.php");
+   header("Location: ../index.php");
 }

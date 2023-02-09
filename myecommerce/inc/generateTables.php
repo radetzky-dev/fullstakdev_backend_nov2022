@@ -19,7 +19,10 @@ function showProducts($render)
                     <td>' . $key['product_q'] . '</td>
                     <td>' . $key['product_prize'] . '</td>
                     <td>' . $key['category'] . '</td>
-                    <td><a href="insert_product.php?id='.$key['product_code'].'">MODIFICA</a><button class="btn btn-danger">ELIMINA (chiede conferma js) </button></td>
+                    <td>
+                    <a href="insert_product.php?id='.$key['product_code'].'">Modifica</a>
+                    <a href="savedata.php?id='.$key['product_code'].'&op=delete">Elimina</a>
+                    </td>
                 </tr>';
         }
     }

@@ -1,20 +1,28 @@
 <?php
 session_start();
 require_once "inc/functions.php";
+include "inc/check_is_admin.php";
+
+//leggo il file
+$productsList = readFileJson("data/products.json");
+//Se non è presente alcun prodotto creo un array vuoto
+if ($productsList == null) {
+    $productsList = array();
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_REQUEST['op'] == "delete") {
+
+    foreach ($productsList as $key => $product) {
+        if ($product['product_code'] == $_REQUEST["id"]) {
+            unset($productsList[$key]);
+        }
+    }
+        //Aggiorno il file json con i nuovi dati inseriti
+        $result = updateFileJson($productsList, "data/products.json");
+}
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "<pre>";
-    echo ($_SERVER['REQUEST_METHOD']);
-    echo "</pre>";
-
-    //leggo il file
-    $productsList = readFileJson("data/products.json");
-
-    //Se non è presente alcun prodotto creo un array vuoto
-    if ($productsList == null) {
-        $productsList = array();
-    }
-
     //Setto condizione di update
     $itemUpdate = false;
 
@@ -30,4 +38,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = updateFileJson($productsList, "data/products.json");
 }
 
-header("Location: index.php");
+header("Location: manage_products.php");
