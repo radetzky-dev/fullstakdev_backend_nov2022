@@ -112,3 +112,5 @@ select title, category, price, actors from film_list where price <3 and category
 select title, category, price, actors from film_list where price <3 and category in ( "Sci-fi", "Family") and (actors not like "%gable%" and actors not like "%MILLA%") order by title limit 15;
 
 select first_name, count(*) as "Occorrenze" from actor  where first_name IN ("GENE" ,"MERYL", "PENELOPE") group by first_name;
+
+select first_name, count(*) as "Occorrenze" from actor  where first_name IN ("GENE" ,"MERYL", "PENELOPE") group by first_name HAVING count(*) > 2;
