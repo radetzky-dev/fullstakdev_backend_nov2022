@@ -98,3 +98,17 @@ phone
 
 QUERY DI ESEMPIO
 select title, release_year, rental_rate, length, rating  from film where language_id="1" and rental_rate >=0.99 and rental_rate <=2.99 and length>180 and length <= 183 and rating="G";
+
+select * from actor_info where first_name like "Penelope" and last_name like "Mon%"  and film_info like "%action%";
+
+select title, category, price, actors from film_list where price <3 and (category like "%sci%" or category like "%child%") and (actors not like "%gable%" and actors not like "%MILLA%");
+
+select fid, title from film_list where fid < 7 and NOT (fid = 4 or fid = 6);
+
+select title, category, price, actors from film_list where price <3 and category in ( "Sci-fi", "Family") and (actors not like "%gable%" and actors not like "%MILLA%");
+
+select title, category, price, actors from film_list where price <3 and category in ( "Sci-fi", "Family") and (actors not like "%gable%" and actors not like "%MILLA%") limit 10,5;
+
+select title, category, price, actors from film_list where price <3 and category in ( "Sci-fi", "Family") and (actors not like "%gable%" and actors not like "%MILLA%") order by title limit 15;
+
+select first_name, count(*) as "Occorrenze" from actor  where first_name IN ("GENE" ,"MERYL", "PENELOPE") group by first_name;
