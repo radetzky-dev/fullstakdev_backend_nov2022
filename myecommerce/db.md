@@ -94,3 +94,7 @@ address
 city
 state
 phone
+
+
+QUERY DI ESEMPIO
+select title, release_year, rental_rate, length, rating  from film where language_id="1" and rental_rate >=0.99 and rental_rate <=2.99 and length>180 and length <= 183 and rating="G";
