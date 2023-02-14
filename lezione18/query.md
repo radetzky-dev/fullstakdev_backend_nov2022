@@ -16,3 +16,6 @@ INNER JOIN film_category as filmCatTbl ON filmTbl.film_id= filmCatTbl.film_id
 INNER JOIN category as catTbl ON filmCatTbl.category_id = catTbl.category_id
 where catTbl.name != "Action"
 limit 20;
+
+
+(SELECT first_name as NAME ,last_name, email FROM staff) UNION (SELECT first_name,last_name, email FROM customer);
