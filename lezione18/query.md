@@ -19,3 +19,5 @@ limit 20;
 
 
 (SELECT first_name as NAME ,last_name, email FROM staff) UNION (SELECT first_name,last_name, email FROM customer);
+
+SELECT first_name as NOME, last_name AS COGNOME, city as CITTA, country as PAESE from customer as custTBL INNER JOIN address as custaddress ON custTBL.address_id = custaddress.address_id INNER JOIN city as cityTBL ON custaddress.city_id = cityTBL.city_id INNER JOIN country as countryTBL ON cityTBL.country_id= countryTBL.country_id limit 20;
