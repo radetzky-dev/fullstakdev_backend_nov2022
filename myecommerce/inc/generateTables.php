@@ -21,7 +21,7 @@ function showProducts($render)
                     <td>' . $key['category'] . '</td>
                     <td>
                     <a href="insert_product.php?id='.$key['product_code'].'">Modifica</a>
-                    <a href="savedata.php?id='.$key['product_code'].'&op=delete">Elimina</a>
+                    <a href="savedata.php?id='.$key['product_code'].'&op=delete" onclick="return confirmAction();">Elimina</a>
                     </td>
                 </tr>';
         }
