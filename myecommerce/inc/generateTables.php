@@ -28,3 +28,33 @@ function showProducts($render)
     }
     return $bodyTable;
 }
+
+/**
+ * showCustomers
+ *
+ * @param  mixed $render
+ * @return void
+ */
+function showCustomers($render)
+{
+    $bodyTable = "";
+
+
+    if (is_array($render) || is_object($render)) {
+        foreach ($render as $value => $key) {
+            $bodyTable = $bodyTable .
+                '<tr>
+                    <td>' . $key['id'] . '</td>
+                    <td>' . $key['name'] . '</td>
+                    <td>' . $key['surname'] . '</td>
+                    <td>' . $key['username'] . '</td>
+                    <td>*****</td>
+                    <td>
+                    <a href="update_customer.php?id='.$key['id'].'">Modifica</a>
+                    <a href="delete_customer.php?id='.$key['id'].'&op=delete" onclick="return confirmAction();">Elimina</a>
+                    </td>
+                </tr>';
+        }
+    }
+    return $bodyTable;
+}

@@ -11,22 +11,21 @@ include "inc/check_is_admin.php";
 <container>
 
     <div class="container">
-        <h3>Gestisci prodotti</h3>
+        <h3>Gestisci anagrafiche</h3>
         <div>
             <table class="table table-bordered">
                 <thead thead class="thead-dark">
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>Descrizione</th>
-                        <th>QTY</th>
-                        <th>Prezzo</th>
-                        <th>Categoria</th>
+                        <th>Cognome</th>
+                        <th>Username</th>
+                        <th>Pwd</th>
                         <th>Operazioni</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?= showProducts(readFileJson("data/products.json")); ?>
+                    <?= showCustomers(readFileJson("data/customers.json")); ?>
                 </tbody>
             </table>
         </div>

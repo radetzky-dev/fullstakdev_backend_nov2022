@@ -13,7 +13,7 @@
                         <a class="nav-link" href="manage_products.php">Gestione prodotti</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gestione clienti</a>
+                        <a class="nav-link" href="manage_customers.php">Gestione clienti</a>
                     </li>
                 <?php } else { ?>
 
