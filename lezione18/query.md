@@ -41,3 +41,14 @@ INSERT into `category` (`name`,`description`, `creation_date`) values (`Utensili
 
 INSERT INTO category (name, description, creation_date) VALUES ("utensili","ferramenta e brico", CURRENT_DATE());
 
+INSERT INTO product (name, price, quantity, description, category_id, creation_date) VALUES ("laptop", 182.99, 7, "HP con 2,5ghz", 2, CURRENT_DATE());
+
+INSERT INTO product (name, price, quantity, description, category_id, creation_date) VALUES ("pane", 0.86, 4, "pagnotte", 3, CURRENT_DATE());
+
+INSERT INTO user (name, surname, username, password, email, creation_date) VALUES ("mark", "red", "admin", "admin", "mark.red@guest.it", CURRENT_DATE());
+
+INSERT INTO customer (name, surname, username, password, email, creation_date) VALUES ("mario", "rossi", "guest", "guest", "mario.red@guest.it", CURRENT_DATE());
+
+INSERT INTO orders (order_num, payed, pay_date, customer_id, order_date) VALUES ("CUST1-a", 1, CURRENT_DATE(), 1, CURRENT_DATE());
+
+INSERT INTO order_details (product_id, order_id, sell_price, quantity, creation_date) VALUES (1,2,7.99,2,CURRENT_DATE());
