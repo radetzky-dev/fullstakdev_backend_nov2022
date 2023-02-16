@@ -36,3 +36,8 @@ INSERT INTO `film_category`(
 `category_id`
 )
 VALUES(1001,7)
+
+INSERT into `category` (`name`,`description`, `creation_date`) values (`Utensili`, `ferramenta e bricolage`,CURRENT_DATE());
+
+INSERT INTO category (name, description, creation_date) VALUES ("utensili","ferramenta e brico", CURRENT_DATE());
+
