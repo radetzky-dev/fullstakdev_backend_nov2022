@@ -30,3 +30,9 @@ insert into actor (first_name, last_name) VALUES ("Robert", "De Niro");
 LAST_INSERT_ID();
 
 INSERT INTO `film`( `title`, `description`, `release_year`, `language_id`, `original_language_id`, `rental_duration`, `rental_rate`, `length`, `replacement_cost`, `rating`, `special_features`) VALUES('TOP GUN',"As student at the United States Navy's","1986","1","1","6","4.9","110",20.99,"G","Trailers,Commentaries");
+
+INSERT INTO `film_category`(
+`film_id`,
+`category_id`
+)
+VALUES(1001,7)
