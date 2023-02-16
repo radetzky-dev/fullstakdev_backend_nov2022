@@ -27,3 +27,6 @@ EXPLAIN
 SELECT first_name as NOME, last_name AS COGNOME, city as CITTA, country as PAESE from customer as custTBL INNER JOIN address as custaddress ON custTBL.address_id = custaddress.address_id INNER JOIN city as cityTBL ON custaddress.city_id = cityTBL.city_id INNER JOIN country as countryTBL ON cityTBL.country_id= countryTBL.country_id where countryTBL.country_id = 34;
 
 insert into actor (first_name, last_name) VALUES ("Robert", "De Niro");
+LAST_INSERT_ID();
+
+INSERT INTO `film`( `title`, `description`, `release_year`, `language_id`, `original_language_id`, `rental_duration`, `rental_rate`, `length`, `replacement_cost`, `rating`, `special_features`) VALUES('TOP GUN',"As student at the United States Navy's","1986","1","1","6","4.9","110",20.99,"G","Trailers,Commentaries");
