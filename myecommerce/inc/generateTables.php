@@ -30,16 +30,18 @@ function showProducts($render)
 }
 
 
-function showProductsMain($render)
+function    showProductsMain($render)
 {
 
     if (is_array($render) || is_object($render)) {
         foreach ($render as $value => $key) {
 ?>
             <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
-                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><?= $key['product']; ?></h3>
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" >
+                    <div class="d-flex flex-column h-50 p-5 pb-3 text-white text-shadow-1">
+                        <!-- mostrare immagine in base al product code -->
+                    <img src="assets/aspirapolvere.jpeg" class="img-fluid" alt="prodotto">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-bg-dark"><?= $key['product']; ?></h3>
                         <ul class="d-flex list-unstyled mt-auto">
                             <li class="d-flex align-items-center me-3">
                                 <small><?= $key['category']; ?></small>
