@@ -30,3 +30,6 @@ SELECT ROUND(AVG(Price)) as "Prezzo medio arrotondato" FROM Product;
 
 SELECT MIN(Price) AS SmallestPrice, MAX(Price) AS BigPrice, AVG(Price) as "Prezzo medio" FROM Product;
 SELECT MAX(Price) AS BigPrice FROM Product;
+
+SELECT product_id, quantity, IF(Quantity>1, "RIORDINA", "LESS") AS RIORDINA
+FROM order_details;
