@@ -14,6 +14,10 @@ select * from actor_description_category_list where cognome like "%cruz%" and CA
 
 //Ordine num, Nome/Cliente cliente, prodotto che ha comprato, prezzo 
 
+
+Vista nuova
+
+CREATE VIEW order_customer_product_list AS
 Select order_num as "Numero Ordine", customerTbl.name as Nome, customerTbl.surname as Cognome, sell_price as Prezzo, productTbl.name as Prodotto from order_details as orderDetailsTbl
 INNER JOIN orders as orderTbl ON orderDetailsTbl.order_id = orderTbl.id
 INNER JOIN product as productTbl ON orderDetailsTbl.product_id = productTbl.id
