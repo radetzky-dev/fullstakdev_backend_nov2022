@@ -2,6 +2,7 @@
 session_start();
 require_once "inc/functions.php";
 include "inc/check_is_admin.php";
+include "inc/upload.php";
 
 //leggo il file
 $productsList = readFileJson("data/products.json");

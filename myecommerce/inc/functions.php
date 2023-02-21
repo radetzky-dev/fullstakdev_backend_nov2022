@@ -1,4 +1,11 @@
 <?php
+
+//Vars
+$maxFileSize= 50000;
+$appName ="Musa market place";
+$target_dir = "assets/";
+
+
 /**
  * updateFileJson
  *

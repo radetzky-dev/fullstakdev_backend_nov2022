@@ -7,7 +7,7 @@ if (empty($_SESSION["userId"])) {
 <html>
 
 <head>
-    <title>App name</title>
+    <title><?php echo $appName; ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="js/function.js"></script>
 </head>

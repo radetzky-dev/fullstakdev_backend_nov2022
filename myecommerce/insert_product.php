@@ -3,6 +3,7 @@ include "inc/functions.php";
 include "inc/header.php";
 include "inc/navbar.php";
 
+
 include "inc/check_is_admin.php";
 
 $action = "Inserisci prodotto";
@@ -26,14 +27,14 @@ if (!empty($_GET["id"])) {
     <div class="container">
         <h3><?php echo $action; ?></h3>
 
-        <form action="savedata.php" method="post" id="frmLogin">
+        <form action="savedata.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="product" class="form-label">Nome prodotto</label>
                 <input name="product" id="product" type="text" value="<?php if (!empty($currentProduct)) echo $currentProduct['product'] ?>" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="product_code" class="form-label">Codice prodotto</label>
-                <input name="product_code" id="product_code" type="text" value="<?php if (!empty($currentProduct)) echo $currentProduct['product_code'] ?>" class="form-control" required <?php if (!empty($currentProduct)) {?> readonly <?php } ?>>
+                <input name="product_code" id="product_code" type="text" value="<?php if (!empty($currentProduct)) echo $currentProduct['product_code'] ?>" class="form-control" required <?php if (!empty($currentProduct)) { ?> readonly <?php } ?>>
             </div>
             <div class="mb-3">
                 <label for="product_q" class="form-label">Quantità</label>
@@ -50,6 +51,10 @@ if (!empty($_GET["id"])) {
             <div class="mb-3">
                 <label for="category" class="form-label">Categoria</label>
                 <input name="category" id="category" type="text" value="<?php if (!empty($currentProduct)) echo $currentProduct['category'] ?>" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Aggiungi immagine</label>
+                <input name="image" id="image" type="file" value="<?php if (!empty($currentProduct)) echo $currentProduct['image'] ?>" class="form-control" required>
             </div>
             <div class="mb-3">
                 <div>
