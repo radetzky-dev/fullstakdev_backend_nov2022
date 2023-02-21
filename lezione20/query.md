@@ -22,3 +22,8 @@ Select order_num as "Numero Ordine", customerTbl.name as Nome, customerTbl.surna
 INNER JOIN orders as orderTbl ON orderDetailsTbl.order_id = orderTbl.id
 INNER JOIN product as productTbl ON orderDetailsTbl.product_id = productTbl.id
 INNER JOIN customer as customerTbl ON orderTbl.customer_id = customerTbl.id;
+
+SELECT * FROM Product
+WHERE Price > (SELECT AVG(Price) FROM Product);
+
+SELECT ROUND(AVG(Price)) as "Prezzo medio arrotondato" FROM Product;
