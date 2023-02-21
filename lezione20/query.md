@@ -27,3 +27,6 @@ SELECT * FROM Product
 WHERE Price > (SELECT AVG(Price) FROM Product);
 
 SELECT ROUND(AVG(Price)) as "Prezzo medio arrotondato" FROM Product;
+
+SELECT MIN(Price) AS SmallestPrice, MAX(Price) AS BigPrice, AVG(Price) as "Prezzo medio" FROM Product;
+SELECT MAX(Price) AS BigPrice FROM Product;
