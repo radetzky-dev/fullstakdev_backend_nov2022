@@ -73,9 +73,12 @@ function createFakeProducts(PDO $db, array $ids): void
     $categoryid = $ids[random_int(0, count($ids) - 1)];
     $date = date('Y-m-d H:i:s');
 
-    $insertQuery = "INSERT INTO products (name, description, price, quantity,category_id,creation_date) VALUES (\"$name\", \"$description\", \"$price\",  \"$quantity\", $categoryid, \"$date\")";
+    $insertQuery = "INSERT INTO product (name, description, price, quantity,category_id,creation_date) VALUES (\"$name\", \"$description\", \"$price\",  \"$quantity\", $categoryid, \"$date\")";
 
-    getQueryResults($insertQuery, $db);
+    if (getQueryResults($insertQuery, $db))
+    {
+        echo "Prodotti inseriti correttamente";
+    }
 }
 
 /**
@@ -151,25 +154,19 @@ $db = pdoConnect();
 
 if ($db) {
 
-    getUserPwd($db);
-    die();
+    //getUserPwd($db);  //Customer creati
+  
+    $idsArray = getIdsFromTable($db, "category");
 
-    //GET numerbers categorys /indirizzi
-    $idsArray = getIdsFromTable($db, "addresses");
-
-    //INSERT
-    for ($i = 1; $i < 10; $i++) {
-        echo "Creo $i customer<br>";
-        createFakeCustomers($db, $idsArray);
-    }
-
-    $idsArray = getIdsFromTable($db, "categories");
+  //  var_dump($idsArray);
 
     //INSERT
+   
     for ($i = 1; $i < 10; $i++) {
         echo "Creo $i prodotto<br>";
         createFakeProducts($db, $idsArray);
     }
+
 
 
     //Disconnect
