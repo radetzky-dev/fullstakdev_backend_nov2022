@@ -63,7 +63,25 @@ function createFakeCustomers(PDO $db, $username, $password): void
 
 function createFakeProducts(PDO $db, array $ids): void
 {
-    $names = ["computer", "mp3 player", "tv color", "ipad", "borraccia", "lampada a olio", "macchina da scrivere", "zerbino", "tappi da bottiglia", "mollette", "stendipanni", "friggitrice", "scatola di chiodi"];
+    $names = ["Oil", "Hazelnut",
+    "Wine", "Yogurt - Cherry, 175 Gr",
+    "Wine - Zinfandel California 2002",
+    "Chocolate - Milk Coating",
+    "Cheese - Swiss Sliced",
+    "Peas - Pigeon, Dry",
+    "Sproutsmustard Cress",
+    "Cabbage - Green",
+    "Shrimp - Baby, Cold Water",
+    "Sauce - Thousand Island",
+    "Cake - Miini Cheesecake Cherry",
+    "Irish Cream - Baileys",
+    "Artichoke - Hearts, Canned",
+    "Wine - Cahors Ac 2000, Clos",
+    "Kahlua",
+    "Greens Mustard",
+    "Carbonated Water - Blackberry",
+    "Roe - Flying Fish",
+    "Liquid Aminios Acid - Braggs"];
 
     //FAKER
     $name = ucfirst($names[random_int(0, count($names) - 1)]);
@@ -162,7 +180,7 @@ if ($db) {
 
     //INSERT
    
-    for ($i = 1; $i < 10; $i++) {
+    for ($i = 1; $i < 20; $i++) {
         echo "Creo $i prodotto<br>";
         createFakeProducts($db, $idsArray);
     }
