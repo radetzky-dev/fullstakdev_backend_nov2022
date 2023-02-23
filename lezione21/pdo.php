@@ -22,12 +22,26 @@ if ($db) {
     $query = "SELECT * from product";
 
     foreach ($db->query($query) as $prodotto) {
-        /*
+
         echo "<pre>";
-        print_r($row);
+        print_r($prodotto);
         echo "</pre>";
-        */
-        echo $prodotto['name'] . ' ' . $prodotto['price'] . '<br>';
+
+        echo $prodotto['name'] . ' ' . $prodotto['price'] . ' DESCR:' . $prodotto[4] . '<br>';
+    }
+
+    echo '<hr>';
+    $table = "orders";  //array -> orders, user, category...
+
+    $query = "SELECT * from $table";
+    echo "Tabella $table <br>";
+    foreach ($db->query($query) as $prodotto) {
+        foreach ($prodotto as $key => $value) {
+            if (is_numeric($key)) {
+                echo $value . '<br>';
+            }
+        }
+        echo "<hr>";
     }
 
     echo "<hr>";
@@ -36,6 +50,7 @@ if ($db) {
 
     foreach ($db->query($query) as $result) {
         echo $result['name'] . ' ' . $result['surname'] . '<br>';
+        echo $result[0] . ' ' . $result[1] . '<br>';
     }
 
     $db = null;
