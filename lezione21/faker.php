@@ -1,18 +1,34 @@
 <?php
+//Set vars
 putenv("DB_HOSTNAME=localhost");
 putenv("DB_NAME=marketplacemusa");
 putenv("DB_USER=root");
 putenv("DB_PASSWORD=");
 
-function pdoConnect()
+
+/**
+ * pdoConnect
+ *
+ * @return PDO
+ */
+function pdoConnect(): PDO|null
 {
     try {
         return new PDO("mysql:host=" . getenv('DB_HOSTNAME') . ";dbname=" . getenv('DB_NAME') . "", getenv("DB_USER"), getenv("DB_PASSWORD"));
     } catch (PDOException $e) {
         echo "Errore di connessione al DB: " . $e->getMessage();
+        return null;
     }
 }
 
+/**
+ * getQueryResults
+ *
+ * @param  mixed $query
+ * @param  mixed $db
+ * @param  mixed $execParams
+ * @return bool
+ */
 function getQueryResults(string $query, PDO $db, array $execParams = null): bool
 {
     try {
@@ -22,7 +38,6 @@ function getQueryResults(string $query, PDO $db, array $execParams = null): bool
         } else {
             $dbStatement->execute();
         }
-
         return true;
     } catch (PDOException $e) {
         echo "Si è verificato un errore nella query $query " . $e->getMessage();
@@ -49,39 +64,48 @@ function createFakeCustomers(PDO $db, $username, $password): void
     $surname = ucfirst($surnames[random_int(0, count($surnames) - 1)]);
 
     $email = strtolower("$username.$surname@$surname.com");
-    $creation_date = date('Y-m-d H:i:s');
+    $creationdate = date('Y-m-d H:i:s');
 
-    $insertQuery = "INSERT INTO customer (name, surname, username,password,email, creation_date) 
-    VALUES (\"$name\", \"$surname\", \"$username\", \"$password\", \"$email\",\"$creation_date\")";
+    $insertQuery = "INSERT INTO customer (name, surname, username,password,email, creation_date) VALUES (\"$name\", \"$surname\", \"$username\", \"$password\", \"$email\",\"$creationdate\")";
 
-   // echo $insertQuery;
-    if (getQueryResults($insertQuery, $db))
-    {
+    // echo $insertQuery;
+    if (getQueryResults($insertQuery, $db)) {
         echo "Customer inseriti correttamente";
     }
 }
 
+/**
+ * createFakeProducts
+ *
+ * @param  mixed $db
+ * @param  mixed $ids
+ * @return void
+ */
 function createFakeProducts(PDO $db, array $ids): void
 {
-    $names = ["Oil", "Hazelnut",
-    "Wine", "Yogurt - Cherry, 175 Gr",
-    "Wine - Zinfandel California 2002",
-    "Chocolate - Milk Coating",
-    "Cheese - Swiss Sliced",
-    "Peas - Pigeon, Dry",
-    "Sproutsmustard Cress",
-    "Cabbage - Green",
-    "Shrimp - Baby, Cold Water",
-    "Sauce - Thousand Island",
-    "Cake - Miini Cheesecake Cherry",
-    "Irish Cream - Baileys",
-    "Artichoke - Hearts, Canned",
-    "Wine - Cahors Ac 2000, Clos",
-    "Kahlua",
-    "Greens Mustard",
-    "Carbonated Water - Blackberry",
-    "Roe - Flying Fish",
-    "Liquid Aminios Acid - Braggs"];
+    $names = [
+        "Oil",
+        "Hazelnut",
+        "Wine",
+        "Yogurt - Cherry, 175 Gr",
+        "Wine - Zinfandel California 2002",
+        "Chocolate - Milk Coating",
+        "Cheese - Swiss Sliced",
+        "Peas - Pigeon, Dry",
+        "Sproutsmustard Cress",
+        "Cabbage - Green",
+        "Shrimp - Baby, Cold Water",
+        "Sauce - Thousand Island",
+        "Cake - Miini Cheesecake Cherry",
+        "Irish Cream - Baileys",
+        "Artichoke - Hearts, Canned",
+        "Wine - Cahors Ac 2000, Clos",
+        "Kahlua",
+        "Greens Mustard",
+        "Carbonated Water - Blackberry",
+        "Roe - Flying Fish",
+        "Liquid Aminios Acid - Braggs"
+    ];
 
     //FAKER
     $name = ucfirst($names[random_int(0, count($names) - 1)]);
@@ -93,8 +117,7 @@ function createFakeProducts(PDO $db, array $ids): void
 
     $insertQuery = "INSERT INTO product (name, description, price, quantity,category_id,creation_date) VALUES (\"$name\", \"$description\", \"$price\",  \"$quantity\", $categoryid, \"$date\")";
 
-    if (getQueryResults($insertQuery, $db))
-    {
+    if (getQueryResults($insertQuery, $db)) {
         echo "Prodotti inseriti correttamente";
     }
 }
@@ -124,7 +147,13 @@ function getIdsFromTable(PDO $db, string $tableName): array
 }
 
 
-function getUserPwd(PDO $db)
+/**
+ * getUserPwd
+ *
+ * @param  mixed $db
+ * @return void
+ */
+function getUserPwd(PDO $db): void
 {
     $myval = '[{"first_name":"cbrinklow0","last_name":"YOvYlczSc"},
     {"first_name":"lquig1","last_name":"P1Duid"},
@@ -166,26 +195,17 @@ function getUserPwd(PDO $db)
     }
 }
 
-
-
 $db = pdoConnect();
 
 if ($db) {
 
     //getUserPwd($db);  //Customer creati
-  
     $idsArray = getIdsFromTable($db, "category");
 
-  //  var_dump($idsArray);
-
-    //INSERT
-   
     for ($i = 1; $i < 20; $i++) {
         echo "Creo $i prodotto<br>";
         createFakeProducts($db, $idsArray);
     }
-
-
 
     //Disconnect
     if ($db) {
