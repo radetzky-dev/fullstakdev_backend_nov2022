@@ -25,6 +25,6 @@ if ($db) {
 
 //Disconnect
 if ($db) {
-    echo "Disconnesso!";
     $db = null;
+    echo "Disconnesso!";
 }
