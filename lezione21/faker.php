@@ -13,7 +13,22 @@ function pdoConnect()
     }
 }
 
+function getQueryResults(string $query, PDO $db, array $execParams = null): bool
+{
+    try {
+        $dbStatement = $db->prepare($query, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+        if (!is_null($execParams)) {
+            $dbStatement->execute($execParams);
+        } else {
+            $dbStatement->execute();
+        }
 
+        return true;
+    } catch (PDOException $e) {
+        echo "Si è verificato un errore nella query $query " . $e->getMessage();
+        return false;
+    }
+}
 
 
 
@@ -36,11 +51,14 @@ function createFakeCustomers(PDO $db, $username, $password): void
     $email = strtolower("$username.$surname@$surname.com");
     $creation_date = date('Y-m-d H:i:s');
 
-    $insertQuery = "INSERT INTO costumer (name, surname, username,password,email, creation_date) 
+    $insertQuery = "INSERT INTO customer (name, surname, username,password,email, creation_date) 
     VALUES (\"$name\", \"$surname\", \"$username\", \"$password\", \"$email\",\"$creation_date\")";
 
-    echo $insertQuery;
-    // getQueryResults($insertQuery, $db);
+   // echo $insertQuery;
+    if (getQueryResults($insertQuery, $db))
+    {
+        echo "Customer inseriti correttamente";
+    }
 }
 
 function createFakeProducts(PDO $db, array $ids): void
@@ -120,8 +138,6 @@ function getUserPwd(PDO $db)
 
     $myVars = json_decode($myval);
 
-    // var_dump($myVars);
-
     foreach ($myVars as $key => $value) {
         echo $value->first_name . ' ' . $value->last_name . '<br>';
         createFakeCustomers($db, $value->first_name, $value->last_name);
@@ -137,8 +153,6 @@ if ($db) {
 
     getUserPwd($db);
     die();
-
-
 
     //GET numerbers categorys /indirizzi
     $idsArray = getIdsFromTable($db, "addresses");

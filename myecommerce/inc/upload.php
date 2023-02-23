@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     /*
     var_dump($check);
     if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
     } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
+    echo "File is not an image.";
+    $uploadOk = 0;
     }
     */
 
@@ -61,7 +61,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     die();
 }
-
-
-
-
