@@ -19,12 +19,25 @@ function pdoConnect()
 $db = pdoConnect();
 if ($db) {
     echo "Connesso con successo!<br>";
-}
+    $query = "SELECT * from product";
 
-//TODO query, insert ecc
+    foreach ($db->query($query) as $prodotto) {
+        /*
+        echo "<pre>";
+        print_r($row);
+        echo "</pre>";
+        */
+        echo $prodotto['name'] . ' ' . $prodotto['price'] . '<br>';
+    }
 
-//Disconnect
-if ($db) {
+    echo "<hr>";
+
+    $query = "SELECT * from customer";
+
+    foreach ($db->query($query) as $result) {
+        echo $result['name'] . ' ' . $result['surname'] . '<br>';
+    }
+
     $db = null;
     echo "Disconnesso!";
 }
