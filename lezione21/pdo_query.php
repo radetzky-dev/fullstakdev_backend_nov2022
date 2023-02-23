@@ -69,7 +69,7 @@ function getQueryResults(string $query, PDO $db, array $execParams = null): bool
 $db = pdoConnect();
 
 if ($db) {
-    
+
     $query = 'SELECT * from customer';
     if (getQueryResults($query, $db)) {
         echo "Query andata buon fine!<br>";
@@ -78,14 +78,17 @@ if ($db) {
     }
 
     echo "<hr>";
-
-    $query = "SELECT name, surname FROM customer WHERE surname = :findSurname";
-    $result = (getQueryResults($query, $db, ['findSurname' => 'Rossi'])) ? "<br>Ok" : "<br>Errore";
+    $query = "SELECT name, surname FROM customer WHERE surname = :find";
+    $param = "rossi";
+    
+    $result = (getQueryResults($query, $db, ['find' => $param])) ? "<br>Ok" : "<br>Errore";
     echo $result;
 
     echo "<hr>";
     $query = "SELECT * FROM product WHERE name = :find";
-    $result = (getQueryResults($query, $db, ['find' => 'martello'])) ? "<br>Ok" : "<br>Errore";
+    $param = "martello";
+
+    $result = (getQueryResults($query, $db, ['find' => $param])) ? "<br>Ok" : "<br>Errore";
     echo $result;
 
 }
