@@ -10,6 +10,6 @@ if ($mysqli -> connect_errno) {
 
 echo "connessione avvenuta con successo!<br>";
 
-$mysqli = null;
+$mysqli->close();
 
 echo "disconnesso<br>";
