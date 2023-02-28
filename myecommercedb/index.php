@@ -12,15 +12,20 @@ include "inc/generateTables.php";
       <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
        <?php //todo gestire che dopo 3 vada a capo
        $db = pdoConnect();
-
-       if ($db) {
        
-           $query = 'SELECT * from product limit 10';
-           if (getQueryResults($query, $db)) {
-               echo "Query andata buon fine!<br>";
-           } else {
-               echo "Errore nella query!<br>";
-           }
+       if ($db) {
+            try {
+              $query = 'SELECT * from product limit 10';
+              $dbStatement= getQueryResults($query, $db);
+              $result = $dbStatement->fetchAll();
+              echo showProducts($result);
+
+          } catch (Exception $e) {
+              echo "Errore nella visualizzazione dei dati " . $e->getMessage();
+   
+          }
+
+
           $db = null;
           }
        ?>

@@ -71,7 +71,6 @@ function showResults($dbStatement): bool
                     echo "$key: $value  <br>";
                 }
             }
-            echo '<hr>';
         }
         return true;
     } catch (Exception $e) {
@@ -86,9 +85,8 @@ function showResults($dbStatement): bool
  * @param  mixed $query
  * @param  mixed $db
  * @param  mixed $execParams
- * @return bool
  */
-function getQueryResults(string $query, PDO $db, array $execParams = null): bool
+function getQueryResults(string $query, PDO $db, array $execParams = null)
 {
     try {
         $dbStatement = $db->prepare($query, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
@@ -100,7 +98,7 @@ function getQueryResults(string $query, PDO $db, array $execParams = null): bool
         //debug
        // $dbStatement->debugDumpParams();
 
-        return showResults($dbStatement);
+        return $dbStatement;
     } catch (PDOException $e) {
         echo "Si è verificato un errore nella query $query " . $e->getMessage();
         return false;
