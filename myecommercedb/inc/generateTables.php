@@ -8,7 +8,7 @@
  */
 function showProducts($render)
 {
-    $bodyTable = "<table>";
+    $bodyTable = "<table class='table table-bordered'>";
     if (is_array($render) || is_object($render)) {
         foreach ($render as $value => $key) {
 
