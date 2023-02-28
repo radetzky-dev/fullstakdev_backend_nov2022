@@ -28,13 +28,13 @@ function showProducts($render)
                 </tr>';
         }
     }
-    $bodyTable = $bodyTable ."</table>";
+
     return $bodyTable;
 }
 
 
 function  showProductsMain($render)
-{
+{   
 
     if (is_array($render) || is_object($render)) {
         foreach ($render as $value => $key) {

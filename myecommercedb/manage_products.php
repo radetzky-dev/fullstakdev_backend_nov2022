@@ -24,7 +24,21 @@ include "inc/check_is_admin.php";
                     </tr>
                 </thead>
                 <tbody>
-                    <?= showProducts(readFileJson("data/products.json")); ?>
+                <?php //todo gestire che dopo 3 vada a capo
+       $db = pdoConnect();
+       
+       if ($db) {
+            try {
+              $query = 'SELECT * from product limit 6';
+              $dbStatement= getQueryResults($query, $db);
+              $result = $dbStatement->fetchAll();
+              echo showProducts($result);
+          } catch (Exception $e) {
+              echo "Errore nella visualizzazione dei dati " . $e->getMessage();   
+          }
+          $db = null;
+          }
+       ?>
                 </tbody>
             </table>
         </div>
