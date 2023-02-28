@@ -1,15 +1,39 @@
 <?php
 
-$mysqli = new mysqli("localhost", "root", "", "marketplacemusa");
-
-// Check connection
-if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-  exit();
+function connection()
+{
+    try {
+        // echo "connessione avvenuta con successo!<br>";
+        return new mysqli("localhost", "root", "", "marketplacemusa");
+    } catch (Exception $e) {
+        echo "Impossibile connettersi to connect to MySQL: " . $e->getMessage();
+        exit();
+    }
 }
 
-echo "connessione avvenuta con successo!<br>";
+$conn = connection();
 
-$mysqli->close();
+echo "<h3>Ordini</h3>";
+$query = "select * from orders";
 
-echo "disconnesso<br>";
+$result = $conn->query($query);
+
+printf("Select returned %d rows.<br>", $result->num_rows);
+
+while ($row = $result->fetch_assoc()) {
+    printf("Order num: %s Payed? %s <br>", $row["order_num"], $row["payed"]);
+}
+
+echo "<h3>Prodotti</h3>";
+
+$query = "select * from product limit 10";
+
+$result = $conn->query($query);
+
+printf("Select returned %d rows.<br>", $result->num_rows);
+
+while ($row = $result->fetch_assoc()) {
+    printf("Name: %s price %s  description %s<br>", $row["name"], $row["price"], $row["description"]);
+}
+
+$conn->close();
