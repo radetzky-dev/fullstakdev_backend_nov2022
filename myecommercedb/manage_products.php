@@ -25,20 +25,20 @@ include "inc/check_is_admin.php";
                 </thead>
                 <tbody>
                 <?php //todo gestire che dopo 3 vada a capo
-       $db = pdoConnect();
-       
-       if ($db) {
-            try {
-              $query = 'SELECT * from product limit 6';
-              $dbStatement= getQueryResults($query, $db);
-              $result = $dbStatement->fetchAll();
-              echo showProducts($result);
-          } catch (Exception $e) {
-              echo "Errore nella visualizzazione dei dati " . $e->getMessage();   
-          }
-          $db = null;
-          }
-       ?>
+$db = pdoConnect();
+
+if ($db) {
+    try {
+        $query = 'SELECT * from product limit 6';
+        $dbStatement = getQueryResults($query, $db);
+        $result = $dbStatement->fetchAll();
+        echo showProducts($result);
+    } catch (Exception $e) {
+        echo "Errore nella visualizzazione dei dati " . $e->getMessage();
+    }
+    $db = null;
+}
+?>
                 </tbody>
             </table>
         </div>
@@ -46,4 +46,4 @@ include "inc/check_is_admin.php";
 </container>
 
 
-<?php include "inc/footer.php"; ?>
+<?php include "inc/footer.php";?>
