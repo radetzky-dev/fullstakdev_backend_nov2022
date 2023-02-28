@@ -8,7 +8,7 @@
  */
 function showProducts($render)
 {
-    $bodyTable = "";
+    $bodyTable = "<table>";
     if (is_array($render) || is_object($render)) {
         foreach ($render as $value => $key) {
 
@@ -28,6 +28,7 @@ function showProducts($render)
                 </tr>';
         }
     }
+    $bodyTable = $bodyTable ."</table>";
     return $bodyTable;
 }
 
