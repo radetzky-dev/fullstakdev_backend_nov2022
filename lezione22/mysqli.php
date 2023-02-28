@@ -87,7 +87,7 @@ echo '<hr>';
 $query = "SELECT name,description FROM product WHERE id=? and description=?";
 $stmt = $conn->prepare($query);
 $id = 3;
-$stmt->execute([$id,'pagnotte']);
+$stmt->execute([$id, 'pagnotte']);
 $result = $stmt->get_result();
 $rows = $result->fetch_array(MYSQLI_NUM);
 var_dump($rows);
@@ -96,10 +96,9 @@ echo '<hr>';
 $query = "SELECT name,description FROM product WHERE id=? and description like ?";
 $stmt = $conn->prepare($query);
 $id = 3;
-$stmt->execute([$id,'%pagn%']);
+$stmt->execute([$id, '%pagn%']);
 $result = $stmt->get_result();
 $rows = $result->fetch_array(MYSQLI_NUM);
 var_dump($rows);
-
 
 $conn->close();
