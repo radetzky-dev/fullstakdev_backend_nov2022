@@ -15,10 +15,10 @@ include "inc/generateTables.php";
        
        if ($db) {
             try {
-              $query = 'SELECT * from product limit 10';
+              $query = 'SELECT * from product limit 6';
               $dbStatement= getQueryResults($query, $db);
               $result = $dbStatement->fetchAll();
-              echo showProducts($result);
+              echo showProductsMain($result);
 
           } catch (Exception $e) {
               echo "Errore nella visualizzazione dei dati " . $e->getMessage();
