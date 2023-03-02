@@ -68,7 +68,7 @@ class Person implements Anagrafica
         if (!empty($this->city)) {
             return $this->name . ' ' . $this->surname . ' age ' . $this->age . ' city ' . $this->city . ' state ' . $this->state;
         }
-        return "-";
+        return "Mancano parametri";
     }
 }
 
@@ -103,7 +103,7 @@ class Impiegato extends Person implements Mail
 $person = new Person();
 $person->setAge(27);
 $person->setName("Mario", "Rossi");
-//$person->setAddress("Milano", "Italia");
+$person->setAddress("Milano", "Italia");
 echo $person->getFullInfo();
 
 echo "<hr>";
