@@ -1,4 +1,6 @@
 <?php
+//costante globale per tutto
+define("CONSTANT", "Hello world.");
 
 class Vegetable
 {
@@ -7,6 +9,8 @@ class Vegetable
     public string $color;
 
     public string $vegName;
+
+    public const PIANTA = 2;
 
     public function __construct(bool $edible, string $vegName, string $color = "green")
     {
@@ -23,6 +27,7 @@ class Vegetable
     public static function getClassInfo() : void
     {
         echo "Classname ".__CLASS__;
+        echo "Costante fuoru ".CONSTANT;
     }
 
     /**
@@ -168,5 +173,9 @@ echo "apple: PARENT " . get_parent_class($apple) . "<br>";
 
 echo "<hr>";
 echo Fruit::sayFresh();
-echo Fruit::getClassInfo();
+Fruit::getClassInfo();
+echo "<br>Costante :".Fruit::PIANTA;
+$myVar = Fruit::PIANTA * 50;
+
+echo "Risultato $myVar<br>";
 
