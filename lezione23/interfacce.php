@@ -114,3 +114,44 @@ $impiegato->setAddress("Roma", "Italia");
 echo $impiegato->getFullInfo();
 $impiegato->setEmail("giulia@test.it");
 echo $impiegato->sendEmailTo();
+
+echo "<hr>";
+
+interface Animal {
+    public function makeSound();
+  }
+  
+  // Class definitions
+  class Cat implements Animal {
+
+    public string $name = "GATTO";
+
+
+    public function makeSound() {
+      echo "Io sono un ". $this->name ." Meow ";
+    }
+  }
+  
+  class Dog implements Animal {
+
+    public function makeSound() {
+        echo "Io  Bark ";
+    }
+  }
+  
+  class Mouse implements Animal {
+    public function makeSound() {
+      echo " Squeak ";
+    }
+  }
+  
+  // Create a list of animals
+  $cat = new Cat();
+  $dog = new Dog();
+  $mouse = new Mouse();
+  $animals = array($cat, $dog, $mouse);
+  
+  // Tell the animals to make a sound
+  foreach($animals as $animal) {
+    $animal->makeSound();
+  }
