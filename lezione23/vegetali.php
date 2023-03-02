@@ -14,7 +14,7 @@ class Vegetable
         $this->vegName = $vegName;
         $this->color = $color;
     }
-    
+
     /**
      * isEdible
      *
@@ -24,7 +24,7 @@ class Vegetable
     {
         return $this->edible;
     }
-    
+
     /**
      * getColor
      *
@@ -34,7 +34,7 @@ class Vegetable
     {
         return $this->color;
     }
-    
+
     /**
      * getName
      *
@@ -44,7 +44,7 @@ class Vegetable
     {
         return $this->vegName;
     }
-    
+
     /**
      * getInfo
      *
@@ -53,8 +53,9 @@ class Vegetable
     public function getInfo(): string
     {
         return "Io sono un " . $this->getName() . "  sono di colore: " . $this->getColor() .
-"<br>";
+            "<br>";
     }
+
 }
 
 class Fruit extends Vegetable
@@ -63,7 +64,7 @@ class Fruit extends Vegetable
 
     public function __construct(bool $edible, string $vegName, string $color, bool $squeezy)
     {
-        $this->squeezy= $squeezy;
+        $this->squeezy = $squeezy;
         parent::__construct($edible, $vegName, $color);
     }
 
@@ -79,7 +80,7 @@ class Fruit extends Vegetable
         }
         return "";
     }
-    
+
     /**
      * getInfo
      * sovrascrive metodo getInfo di Vegetable
@@ -88,13 +89,42 @@ class Fruit extends Vegetable
     public function getInfo(): string
     {
         return "Io sono un " . $this->getName() . "  sono di colore: " . $this->getColor() .
-" " . $this->isSqueezy() . "<br>";
+        " " . $this->isSqueezy() . "<br>";
     }
 
 }
 
+/**
+ * printProperties
+ *
+ * @param  mixed $obj
+ * @return void
+ */
+function printProperties($obj)
+{
+    foreach (get_object_vars($obj) as $prop => $val) {
+        echo "$prop = $val<br>";
+    }
+}
+
+/**
+ * printMethods
+ *
+ * @param  mixed $obj
+ * @return void
+ */
+function printMethods($obj)
+{
+    $arr = get_class_methods(get_class($obj));
+    foreach ($arr as $method) {
+        echo "function $method()<br>";
+    }
+}
+
 $asparago = new Vegetable(true, "asparago", "verde");
 echo $asparago->getInfo();
+printProperties($asparago);
+printMethods($asparago);
 
 $lemon = new Fruit(true, "limone", "giallo", true);
 echo $lemon->getInfo();
@@ -104,6 +134,9 @@ echo $orange->getInfo();
 
 $apple = new Fruit(true, "mela", "verde", false);
 echo $apple->getInfo();
+printProperties($apple);
+printMethods($apple);
 
-
-
+echo "asparago: CLASS " . get_class($asparago) . "<br>";
+echo "apple: CLASS " . get_class($apple).'<br>';
+echo "apple: PARENT " . get_parent_class($apple) . "<br>";
