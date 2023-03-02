@@ -9,18 +9,18 @@ interface Anagrafica
 
 interface Mail
 {
-    public function setEmail(string $email):void;
+    public function setEmail(string $email): void;
     public function sendEmailTo(): string;
 }
 
 class Person implements Anagrafica
 {
-    public int $age;
+    public int $age = 0;
     public string $name;
     public string $surname;
     public string $state;
     public string $city;
-    
+
     /**
      * setAge
      *
@@ -31,7 +31,7 @@ class Person implements Anagrafica
     {
         $this->age = $age;
     }
-    
+
     /**
      * setName
      *
@@ -44,7 +44,7 @@ class Person implements Anagrafica
         $this->name = $name;
         $this->surname = $surname;
     }
-    
+
     /**
      * setAddress
      *
@@ -57,7 +57,7 @@ class Person implements Anagrafica
         $this->state = $state;
         $this->city = $city;
     }
-    
+
     /**
      * getFullInfo
      *
@@ -65,25 +65,28 @@ class Person implements Anagrafica
      */
     public function getFullInfo()
     {
-        return $this->name. ' '.$this->surname . ' age '.$this->age. ' city '.$this->city. ' state '.$this->state;
+        if (!empty($this->city)) {
+            return $this->name . ' ' . $this->surname . ' age ' . $this->age . ' city ' . $this->city . ' state ' . $this->state;
+        }
+        return "-";
     }
 }
 
 class Impiegato extends Person implements Mail
 {
-    public string $email;
-    
+    stringpublic $email;
+
     /**
      * setEmail
      *
      * @param  mixed $email
      * @return void
      */
-    public function setEmail(string $email) : void
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
-        
+
     /**
      * sendEmailTo
      *
@@ -91,17 +94,16 @@ class Impiegato extends Person implements Mail
      */
     public function sendEmailTo(): string
     {
-        return "mail inviata a ".$this->email;
+        return "mail inviata a " . $this->email;
 
     }
 
 }
 
-
 $person = new Person();
 $person->setAge(27);
 $person->setName("Mario", "Rossi");
-$person->setAddress("Milano", "Italia");
+//$person->setAddress("Milano", "Italia");
 echo $person->getFullInfo();
 
 echo "<hr>";
