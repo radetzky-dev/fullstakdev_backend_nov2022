@@ -14,6 +14,16 @@ class Vegetable
         $this->vegName = $vegName;
         $this->color = $color;
     }
+    
+    /**
+     * getClassInfo
+     *
+     * @return void
+     */
+    public static function getClassInfo() : void
+    {
+        echo "Classname ".__CLASS__;
+    }
 
     /**
      * isEdible
@@ -83,16 +93,30 @@ class Fruit extends Vegetable
 
     /**
      * getInfo
-     * sovrascrive metodo getInfo di Vegetable
+     * sovrascrive override metodo getInfo di Vegetable
      * @return string
      */
     public function getInfo(): string
     {
         return "Io sono un " . $this->getName() . "  sono di colore: " . $this->getColor() .
-        " " . $this->isSqueezy() . "<br>";
+        " " . $this->isSqueezy() . " e sono ".self::sayFresh()."<br>";
+    }
+
+    
+    /**
+     * sayFresh
+     *
+     * @return string
+     */
+    public static function sayFresh(): string
+    {
+        return "Fresh!";
     }
 
 }
+
+
+
 
 /**
  * printProperties
@@ -121,6 +145,7 @@ function printMethods($obj)
     }
 }
 
+
 $asparago = new Vegetable(true, "asparago", "verde");
 echo $asparago->getInfo();
 printProperties($asparago);
@@ -140,3 +165,8 @@ printMethods($apple);
 echo "asparago: CLASS " . get_class($asparago) . "<br>";
 echo "apple: CLASS " . get_class($apple).'<br>';
 echo "apple: PARENT " . get_parent_class($apple) . "<br>";
+
+echo "<hr>";
+echo Fruit::sayFresh();
+echo Fruit::getClassInfo();
+
