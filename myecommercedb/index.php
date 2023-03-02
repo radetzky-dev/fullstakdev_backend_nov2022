@@ -19,13 +19,9 @@ include "inc/generateTables.php";
               $dbStatement= getQueryResults($query, $db);
               $result = $dbStatement->fetchAll();
               echo showProductsMain($result);
-
           } catch (Exception $e) {
-              echo "Errore nella visualizzazione dei dati " . $e->getMessage();
-   
+              echo "Errore nella visualizzazione dei dati " . $e->getMessage();   
           }
-
-
           $db = null;
           }
        ?>
