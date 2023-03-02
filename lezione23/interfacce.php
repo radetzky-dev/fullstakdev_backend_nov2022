@@ -74,7 +74,7 @@ class Person implements Anagrafica
 
 class Impiegato extends Person implements Mail
 {
-    stringpublic $email;
+    public string $email;
 
     /**
      * setEmail
