@@ -167,6 +167,18 @@ echo $apple->getInfo();
 printProperties($apple);
 printMethods($apple);
 
+echo "<hr>";
+
+if ($apple instanceof Fruit)
+{
+    echo "sono ".$apple->getName(). " e sono un frutto!<br>";
+}
+
+if ($apple instanceof Vegetable)
+{
+    echo "sono ".$apple->getName(). " e sono un vegetale!<br>";
+}
+
 echo "asparago: CLASS " . get_class($asparago) . "<br>";
 echo "apple: CLASS " . get_class($apple).'<br>';
 echo "apple: PARENT " . get_parent_class($apple) . "<br>";
