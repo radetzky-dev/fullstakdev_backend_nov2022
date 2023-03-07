@@ -24,15 +24,34 @@ trait SayWorld
     public function sayCiao()
     {
         echo "ciao<br>";
+        $this->sayQualcosa();
+    }
+
+    protected function sayQualcosa()
+    {
+        echo "hello qualocosa<br>";
     }
 }
 
+class DoSomething
+{
+    public function sayMiao()
+    {
+        echo "Miao!<br>";
+    }
+}
+
+/**
+ * MyHelloWorld
+ */
 class MyHelloWorld extends Base implements Mail
 {
     use SayWorld;
 
     public function sayBuonasera()
     {
+        $doS = new DoSomething();
+        $doS->sayMiao();
         echo "Buonasera<br>";
     }
 
