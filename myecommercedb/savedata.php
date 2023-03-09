@@ -2,9 +2,22 @@
 session_start();
 include "inc/functions.php";
 include "inc/check_is_admin.php";
-include "inc/upload.php";
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (!empty($_POST['product_id']))
+    {
+        //update
+        echo "Update";
+        die();
+    }
+    else
+    {
+        //Insert
+        echo "Insert";
+        include "inc/upload.php";
+    }
 
     var_dump($_REQUEST);
 
@@ -12,8 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($db) {
         try {
-            $query = 'INSERT INTO product (name,price,quantity,description,photo,category_id) VALUES (?,?,?,?,?,?);';
-            $result = getQueryResults($query, $db, [$_POST['product'], $_POST['product_prize'], $_POST['product_q'], $_POST['description'], $_FILES['image']['name'], $_POST['category']]) ? "<br>Ok" : "<br>Errore";
+            $date = date('Y-m-d H:i:s');
+            $query = 'INSERT INTO product (name,price,quantity,description,photo,category_id,creation_date) VALUES (?,?,?,?,?,?,?);';
+            $result = getQueryResults($query, $db, [$_POST['product'], $_POST['product_prize'], $_POST['product_q'], $_POST['description'], $_FILES['image']['name'], $_POST['category'],$date]) ? "<br>Ok" : "<br>Errore";
             echo $result;
             echo '<pre>';
 
