@@ -10,6 +10,7 @@ $action = "Inserisci prodotto";
 $db = pdoConnect();
 
 $quantity = 1;
+$category_id =1;
 
 if (!empty($_GET["id"])) {
 
@@ -42,8 +43,7 @@ if (!empty($_GET["id"])) {
 <div class="container">
 <h3><?php echo $action; ?></h3>
 <form action="savedata.php" method="post" enctype="multipart/form-data">
-<input name="product_id" id="product_id" type="hidden" value="
-<?php if (!empty($_GET["id"])) {
+<input name="product_id" id="product_id" type="hidden" value="<?php if (!empty($_GET["id"])) {
     echo $_GET["id"];
 }?>" class="form-control">
 <div class="mb-3">
@@ -95,18 +95,12 @@ if ($db) {
 <select type='select' name='category' class="form-select form-control" required aria-label="Default select example">
 <option selected>Seleziona categoria</option>
 <?php
-//todo category_id
             foreach ($result as $value => $key) {
-
                 $selected = "";
-                if ($key['id'] = $category_id) {
+                if ($key['id'] == $category_id) {
                     $selected = "selected";
                 }
-
-                if (!empty($currentProduct)) {
-                    echo $currentProduct['category'];
-                }
-                echo '<option value="' . $key['id'] . '" ' . $selected . '> ' . $key['name'] . '</option>';
+                echo '<option value="' . $key['id'] . '" ' . $selected . '>' . $key['name'] . '</option>';
             }
             ?> <select>
 <?php }
