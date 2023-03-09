@@ -2,7 +2,6 @@
 include "inc/functions.php";
 include "inc/header.php";
 include "inc/navbar.php";
-
 include "inc/generateTables.php";
 include "inc/check_is_admin.php";
 ?>
