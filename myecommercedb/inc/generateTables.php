@@ -19,6 +19,7 @@ function showProducts($render)
                     <td>' . $key['price'] . '</td>
                     <td>' . $key['quantity'] . '</td>
                     <td>' . $key['description'] . '</td>
+                    <td></td>
                     <td>' . $key['photo'] . '</td>
                
                     <td>
@@ -30,6 +31,13 @@ function showProducts($render)
     }
 
     return $bodyTable;
+}
+
+function getCategoryName($cat_id)
+{
+    //TODO
+    //db connette e trova con la query il nome della categoria
+    //return string NOMECATEGORIA
 }
 
 
