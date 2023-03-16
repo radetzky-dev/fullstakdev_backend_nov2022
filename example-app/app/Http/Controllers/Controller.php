@@ -15,8 +15,5 @@ class Controller extends BaseController
         echo "Hello world!";
     }
 
-    public function sayCiao()
-    {
-        echo "Ciao mondo!";
-    }
+
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\GreetingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,5 +40,7 @@ Route::get('/about/due', function () {
     return view('about');
 });
 
-Route::get('/sayhello', [Controller::class, 'index']);
-Route::get('/sayciao', [Controller::class, 'sayCiao']);
+Route::get('/neutro', [Controller::class, 'index']);
+Route::get('/sayciao', [GreetingController::class, 'sayCiao']);
+Route::get('/sayhello', [GreetingController::class, 'sayHello']);
+Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
