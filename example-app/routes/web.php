@@ -38,14 +38,11 @@ use Illuminate\Http\Request;
 Route::post('/prova', function (Request $request) {
     echo "ricevuta post!";
 
-
     if ($request->isMethod('post')) {
        echo "chiamato metodo post!<br>";
     }
     $fields = $request->all();
-
     echo $fields['name'];
-
     
 });
 
