@@ -33,8 +33,20 @@ Route::get('/prova', function () {
     return view('prova');
 });
 
-Route::post('/prova', function () {
+use Illuminate\Http\Request;
+
+Route::post('/prova', function (Request $request) {
     echo "ricevuta post!";
+
+
+    if ($request->isMethod('post')) {
+       echo "chiamato metodo post!<br>";
+    }
+    $fields = $request->all();
+
+    echo $fields['name'];
+
+    
 });
 
 Route::get('/about/due', function () {
@@ -52,3 +64,5 @@ Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
 Route::get('/salutami/{name}', [GreetingController::class, 'salutami']);
 
 Route::get('/saluta/{name}/{surname}', [GreetingController::class, 'saluta']);
+
+Route::view('/sayciaovista', 'saluti.ciao', ['name'=>'prova']);

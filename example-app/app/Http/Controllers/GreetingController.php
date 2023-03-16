@@ -8,7 +8,7 @@ class GreetingController extends Controller
 {
     public function sayCiao()
     {
-        return view('saluti.ciao');
+        return view('saluti.ciao', ['name'=>'nessuno']);
     }
 
     public function sayHello()
@@ -17,8 +17,9 @@ class GreetingController extends Controller
         echo "Hello world!";
     }
 
-    public function sayBuonasera()
+    public function sayBuonasera(Request $request)
     {
+        var_dump($request->query());
         echo "buonasera";
     }
 
@@ -27,12 +28,14 @@ class GreetingController extends Controller
         return 19;
     }
 
-    public function salutami($name)
+    public function salutami(Request $request, $name)
     {
+        var_dump($request->query());
+
         $data = [
             'name' => $name,
             'age' => $this->getAge(),
-            'vars' => ['a','giallo','c']
+            'vars' => [$request['val'],'giallo','c']
         ];
 
         return view('saluti.saluta', $data);

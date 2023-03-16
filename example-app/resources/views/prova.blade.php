@@ -10,13 +10,11 @@
      <p>Pagina di prova</p>
      <form method="post" action="{{url("prova")}}">
         @csrf
+        <input type="text" name="name" id="name">
         <input type="submit" value="invia">
     </form>
 
-    <form method="post" action="/prova">
-        @csrf
-        <input type="submit" value="invia2">
-    </form>
+   
 
 
 
