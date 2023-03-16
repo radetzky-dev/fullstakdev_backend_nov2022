@@ -48,3 +48,7 @@ $say="sayCiao";
 Route::get('/sayciao', [GreetingController::class, $say]);
 Route::get('/sayhello', [GreetingController::class, 'sayHello']);
 Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
+
+Route::get('/salutami/{name}', [GreetingController::class, 'salutami']);
+
+Route::get('/saluta/{name}/{surname}', [GreetingController::class, 'saluta']);

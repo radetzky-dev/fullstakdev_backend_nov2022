@@ -24,5 +24,15 @@ class GreetingController extends Controller
     {
         echo "buonasera";
     }
+
+    public function salutami($name)
+    {
+        return "Only name Hello $name";
+    }
+
+    public function saluta($name, $surname)
+    {
+        return "Two: Hello $name $surname";
+    }
     
 }
