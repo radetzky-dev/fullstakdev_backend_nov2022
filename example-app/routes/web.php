@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,5 @@ Route::get('/about/due', function () {
     return view('about');
 });
 
+Route::get('/sayhello', [Controller::class, 'index']);
+Route::get('/sayciao', [Controller::class, 'sayCiao']);

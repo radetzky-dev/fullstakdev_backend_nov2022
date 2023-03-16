@@ -9,4 +9,14 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function index()
+    {
+        echo "Hello world!";
+    }
+
+    public function sayCiao()
+    {
+        echo "Ciao mondo!";
+    }
 }
