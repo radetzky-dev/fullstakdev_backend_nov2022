@@ -8,10 +8,7 @@ class GreetingController extends Controller
 {
     public function sayCiao()
     {
-        //conne query pdf
-        //class -> calcola lo stpnedio in basa $param
-        echo "Ciao mondo!";
-        //-> invio alla vista $result [array];
+        return view('saluti.ciao');
     }
 
     public function sayHello()
@@ -25,9 +22,20 @@ class GreetingController extends Controller
         echo "buonasera";
     }
 
+    private function getAge()
+    {
+        return 19;
+    }
+
     public function salutami($name)
     {
-        return "Only name Hello $name";
+        $data = [
+            'name' => $name,
+            'age' => $this->getAge(),
+            'vars' => ['a','giallo','c']
+        ];
+
+        return view('saluti.saluta', $data);
     }
 
     public function saluta($name, $surname)
