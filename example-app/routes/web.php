@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GreetingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +42,9 @@ Route::get('/about/due', function () {
 });
 
 Route::get('/neutro', [Controller::class, 'index']);
-Route::get('/sayciao', [GreetingController::class, 'sayCiao']);
+
+$say="sayCiao";
+
+Route::get('/sayciao', [GreetingController::class, $say]);
 Route::get('/sayhello', [GreetingController::class, 'sayHello']);
 Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
