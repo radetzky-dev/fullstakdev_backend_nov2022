@@ -8,7 +8,7 @@ class GreetingController extends Controller
 {
     public function sayCiao()
     {
-        return view('saluti.ciao', ['name'=>'nessuno']);
+        return view('saluti.ciao', ['name' => 'nessuno']);
     }
 
     public function sayHello()
@@ -35,7 +35,7 @@ class GreetingController extends Controller
         $data = [
             'name' => $name,
             'age' => $this->getAge(),
-            'vars' => [$request['val'],'giallo','c']
+            'vars' => [$request['val'], 'giallo', 'c'],
         ];
 
         return view('saluti.saluta', $data);
@@ -45,5 +45,18 @@ class GreetingController extends Controller
     {
         return "Two: Hello $name $surname";
     }
-    
+
+    public function getNameFromForm(Request $request)
+    {
+
+        if ($request->isMethod('post')) {
+
+            $fields = $request->all();
+            //TODO
+            return view('nomevista', $fields);
+        } else {
+            return "Forbidden!";
+        }
+    }
+
 }
