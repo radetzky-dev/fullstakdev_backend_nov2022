@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GreetingController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,12 +58,11 @@ $say="sayCiao";
 Route::get('/sayciao', [GreetingController::class, $say]);
 Route::get('/sayhello', [GreetingController::class, 'sayHello']);
 Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
-
 Route::get('/saygoodevening/{name?}', [GreetingController::class, 'sayGoodEvening']);
-
 Route::get('/salutami/{name}', [GreetingController::class, 'salutami'])->where('name', '[A-Za-z]+');
-
 Route::get('/saluta/{nome}/{cognome}', [GreetingController::class, 'saluta']);
+Route::get('/login', [GreetingController::class, 'show'])->name('loggami');
+
 Route::get('/salutadue/{nome}/{eta}', function ($nome, $age) {
     echo "Ciao $nome e hai $age anni";
 })->where(['nome'=>'[a-z]+','eta'=>'[0-9]+']);
@@ -75,7 +75,6 @@ Route::get('/category/{xxx}', function (string $category) {
 })->whereIn('xxx', $myArray);
 
 
-
 Route::get('/user/profile', function () {
     echo "ciao";
 })->name('profile');
@@ -85,4 +84,13 @@ Route::get('test/student', function() {
     echo "ciao";
  })->name('student_test');
 
- Route::get('/login', [GreetingController::class, 'show'])->name('loggami');
+
+//default quando non trova nulla
+ Route::fallback(function () {
+    echo "Il path che hai cercato non esiste!";
+});
+
+Route::controller(OrderController::class)->group(function () {
+    Route::get('/orders/{id}', 'store');
+    Route::get('/orders', 'index');
+});
