@@ -74,4 +74,9 @@ class GreetingController extends Controller
         }
     }
 
+    public function show()
+    {
+        return "mostro id";
+    }
+
 }

@@ -73,3 +73,14 @@ $myArray = ['film', 'cinema', 'banane'];
 Route::get('/category/{xxx}', function (string $category) {
    echo "Stasera vuoi vedere qualcosa di $category";
 })->whereIn('xxx', $myArray);
+
+
+
+Route::get('/user/profile', function () {
+    echo "ciao";
+})->name('profile');
+
+Route::get('test/student', function() {
+    echo "ciao";
+ })->name('student_test');
+
