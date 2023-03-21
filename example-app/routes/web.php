@@ -80,7 +80,9 @@ Route::get('/user/profile', function () {
     echo "ciao";
 })->name('profile');
 
+
 Route::get('test/student', function() {
     echo "ciao";
  })->name('student_test');
 
+ Route::get('/login', [GreetingController::class, 'show'])->name('show');
