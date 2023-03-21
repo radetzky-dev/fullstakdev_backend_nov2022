@@ -85,4 +85,4 @@ Route::get('test/student', function() {
     echo "ciao";
  })->name('student_test');
 
- Route::get('/login', [GreetingController::class, 'show'])->name('show');
+ Route::get('/login', [GreetingController::class, 'show'])->name('loggami');
