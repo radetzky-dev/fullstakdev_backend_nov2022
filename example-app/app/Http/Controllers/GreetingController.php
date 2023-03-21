@@ -26,6 +26,18 @@ class GreetingController extends Controller
         return "buonasera GUEST";
     }
 
+    public function sayGoodEvening($name = "GUEST")
+    {
+     
+       $data = [
+            'name' => $name,
+            'age' => $this->getAge(),
+            'vars' => ['ciao'],
+        ];
+
+        return view('saluti.saluta', $data);
+    }
+
     private function getAge()
     {
         return 19;

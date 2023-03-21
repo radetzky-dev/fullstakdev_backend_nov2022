@@ -58,6 +58,8 @@ Route::get('/sayciao', [GreetingController::class, $say]);
 Route::get('/sayhello', [GreetingController::class, 'sayHello']);
 Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
 
+Route::get('/saygoodevening/{name?}', [GreetingController::class, 'sayGoodEvening']);
+
 Route::get('/salutami/{name}', [GreetingController::class, 'salutami']);
 
 Route::get('/saluta/{nome}/{cognome}', [GreetingController::class, 'saluta']);
