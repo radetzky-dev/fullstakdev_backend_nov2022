@@ -67,9 +67,9 @@ Route::get('/salutadue/{nome}/{eta}', function ($nome, $age) {
     echo "Ciao $nome e hai $age anni";
 })->where(['nome'=>'[a-z]+','eta'=>'[0-9]+']);
 
-
 Route::view('/sayciaovista', 'saluti.ciao', ['name'=>'prova']);
 
-Route::get('/category/{category}', function (string $category) {
+$myArray = ['film', 'cinema', 'banane'];
+Route::get('/category/{xxx}', function (string $category) {
    echo "Stasera vuoi vedere qualcosa di $category";
-})->whereIn('category', ['film', 'cinema', 'teatro']);
+})->whereIn('xxx', $myArray);
