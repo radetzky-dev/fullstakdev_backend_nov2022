@@ -53,15 +53,19 @@ Route::get('/about/due', function () {
 
 Route::get('/neutro', [Controller::class, 'index']);
 
-$say="sayCiao";
 
-Route::get('/sayciao', [GreetingController::class, $say]);
-Route::get('/sayhello', [GreetingController::class, 'sayHello']);
-Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
-Route::get('/saygoodevening/{name?}', [GreetingController::class, 'sayGoodEvening']);
-Route::get('/salutami/{name}', [GreetingController::class, 'salutami'])->where('name', '[A-Za-z]+');
-Route::get('/saluta/{nome}/{cognome}', [GreetingController::class, 'saluta']);
-Route::get('/login', [GreetingController::class, 'show'])->name('loggami');
+Route::controller(GreetingController::class)->group(function () {
+    $say="sayCiao";
+    Route::get('/sayciao', $say);
+    Route::get('/sayhello', 'sayHello');
+    Route::get('/saybuonasera', 'sayBuonasera');
+    Route::get('/saygoodevening/{name?}', 'sayGoodEvening');
+    Route::get('/salutami/{name}', 'salutami')->where('name', '[A-Za-z]+');
+    Route::get('/saluta/{nome}/{cognome}', 'saluta');
+    Route::get('/login', 'show')->name('loggami');
+});
+
+
 
 Route::get('/salutadue/{nome}/{eta}', function ($nome, $age) {
     echo "Ciao $nome e hai $age anni";
