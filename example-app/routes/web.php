@@ -60,13 +60,12 @@ Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
 
 Route::get('/saygoodevening/{name?}', [GreetingController::class, 'sayGoodEvening']);
 
-Route::get('/salutami/{name}', [GreetingController::class, 'salutami']);
+Route::get('/salutami/{name}', [GreetingController::class, 'salutami'])->where('name', '[A-Za-z]+');
 
 Route::get('/saluta/{nome}/{cognome}', [GreetingController::class, 'saluta']);
-Route::get('/salutadue/{nome}/{cognome}', function ($nome, $cognome) {
-    echo "Ciao $nome $cognome";
-});
-
+Route::get('/salutadue/{nome}/{eta}', function ($nome, $age) {
+    echo "Ciao $nome e hai $age anni";
+})->where(['nome'=>'[a-z]+','eta'=>'[0-9]+']);
 
 
 Route::view('/sayciaovista', 'saluti.ciao', ['name'=>'prova']);
