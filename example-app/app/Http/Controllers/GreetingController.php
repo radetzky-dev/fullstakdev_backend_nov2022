@@ -19,8 +19,11 @@ class GreetingController extends Controller
 
     public function sayBuonasera(Request $request)
     {
-        var_dump($request->query());
-        echo "buonasera";
+        $myArray = $request->query();
+        if (isset($myArray['name'])) {
+            return "buonasera " . $myArray['name'];
+        }
+        return "buonasera GUEST";
     }
 
     private function getAge()

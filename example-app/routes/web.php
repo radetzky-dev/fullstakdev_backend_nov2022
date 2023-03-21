@@ -60,6 +60,11 @@ Route::get('/saybuonasera', [GreetingController::class, 'sayBuonasera']);
 
 Route::get('/salutami/{name}', [GreetingController::class, 'salutami']);
 
-Route::get('/saluta/{name}/{surname}', [GreetingController::class, 'saluta']);
+Route::get('/saluta/{nome}/{cognome}', [GreetingController::class, 'saluta']);
+Route::get('/salutadue/{nome}/{cognome}', function ($nome, $cognome) {
+    echo "Ciao $nome $cognome";
+});
+
+
 
 Route::view('/sayciaovista', 'saluti.ciao', ['name'=>'prova']);
