@@ -69,3 +69,7 @@ Route::get('/salutadue/{nome}/{eta}', function ($nome, $age) {
 
 
 Route::view('/sayciaovista', 'saluti.ciao', ['name'=>'prova']);
+
+Route::get('/category/{category}', function (string $category) {
+   echo "Stasera vuoi vedere qualcosa di $category";
+})->whereIn('category', ['film', 'cinema', 'teatro']);
