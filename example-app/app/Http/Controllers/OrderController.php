@@ -51,7 +51,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $name = $request->input('name');
+        return "chiamata PUT con $id e $name";
     }
 
     /**

@@ -11,6 +11,12 @@ class GreetingController extends Controller
         return view('saluti.ciao', ['name' => 'nessuno']);
     }
 
+    public function update($id)
+    {
+        var_dump($_REQUEST);
+        return "chiamata PUT con $id";
+    }
+
     public function sayHello()
     {
         //elabora
