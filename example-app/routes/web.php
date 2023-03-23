@@ -82,7 +82,8 @@ Route::get('/category/{xxx}', function (string $category) {
 })->whereIn('xxx', $myArray);
 
 Route::get('/user/profile', function () {
-    echo "ciao";
+    $name = Route::currentRouteName(); // string
+    echo "ciao $name";
 })->name('profile');
 
 

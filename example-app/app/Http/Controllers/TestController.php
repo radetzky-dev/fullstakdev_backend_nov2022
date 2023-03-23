@@ -44,7 +44,7 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        //
+        //$test->name;
     }
 
     /**

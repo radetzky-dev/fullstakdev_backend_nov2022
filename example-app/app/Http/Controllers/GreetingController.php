@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class GreetingController extends Controller
 {
@@ -20,7 +21,9 @@ class GreetingController extends Controller
     public function sayHello()
     {
         //elabora
-        echo "Hello world!";
+        $name = Route::currentRouteName(); // string
+        $action = Route::currentRouteAction(); // string
+        echo "Hello world! Name: $name  e azione $action";
     }
 
     public function sayBuonasera(Request $request)
@@ -34,8 +37,8 @@ class GreetingController extends Controller
 
     public function sayGoodEvening($name = "GUEST")
     {
-     
-       $data = [
+
+        $data = [
             'name' => $name,
             'age' => $this->getAge(),
             'vars' => ['ciao'],
