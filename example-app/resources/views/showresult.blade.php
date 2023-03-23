@@ -1,6 +1,4 @@
 <?php
-
-var_dump($_REQUEST);
-
+echo "Tu sei $name con id $id <br>";
 ?>
-<h1>Sei qui</h1>
+<a href="{{ url("/prova")}}">Torna al form</a>

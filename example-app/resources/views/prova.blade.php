@@ -16,10 +16,10 @@
         <input type="submit" value="invia">
     </form>
 
-
     <hr>
-    <h2>Form con la put per showresult</h2>
-    <form action="{{ url('showresult') }}/2" method="POST">
+    <h2>Form con la put per showresult e update</h2>
+    <?php $id=2;?>
+    <form action="{{ url('showresult') }}/<?php echo $id;?>" method="POST">
         <input type="text" name="name" id="name">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -31,7 +31,6 @@
         {{ csrf_field() }}
         {{ method_field('put') }}
         <input type="text" name="name" id="name">
-        
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
 
