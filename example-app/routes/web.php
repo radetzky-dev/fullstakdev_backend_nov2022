@@ -93,7 +93,8 @@ Route::fallback(function () {
 });
 
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/orders/{id}', 'store');
     Route::get('/orders', 'index');
+    Route::post('/store', 'store')->name('store');
     Route::put('/showresult/{id}', 'update')->name('update');
+    Route::delete('/delete/{id}', 'destroy')->name('delete');
 });

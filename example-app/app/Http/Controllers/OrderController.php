@@ -25,9 +25,15 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request,$id)
+    public function store(Request $request)
     {
-        return "Salva un nuovo ordine con id $id";
+       
+        $data = [
+            'name' => $request->input('name'),
+            'id' => 'Ho salvato un nuovo ordine',
+        ];
+
+        return view('showresult', $data);
     }
 
     /**
@@ -65,6 +71,6 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        echo "Cancello questo id $id";
     }
 }

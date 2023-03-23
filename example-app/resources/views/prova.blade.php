@@ -17,6 +17,15 @@
     </form>
 
     <hr>
+
+    <h2>post normale</h2>
+    <form method="post" action="{{ route('store') }}">
+        @csrf
+        <input type="text" name="name" id="name">
+        <input type="submit" value="Invia">
+    </form>
+
+
     <h2>Form con la put per showresult e update</h2>
     <?php $id=2;?>
     <form action="{{ url('showresult') }}/<?php echo $id;?>" method="POST">
@@ -32,6 +41,14 @@
         {{ method_field('put') }}
         <input type="text" name="name" id="name">
         <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+
+
+    <form action="{{ route('delete', 1) }}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
     </form>
 
 
