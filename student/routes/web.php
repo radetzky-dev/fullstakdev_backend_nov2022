@@ -22,3 +22,6 @@ Route::resource('students', 'App\Http\Controllers\StudentController');
 
 Route::post('search', [StudentController::class, 'search']);
 Route::get('getbustime', [StudentController::class, 'getbustime']);
+Route::get('timetable', [StudentController::class, 'timetable']);
+Route::get('sendmail', [StudentController::class, 'sendmail']);
+Route::get('sendmailto/{id}', [StudentController::class, 'sendmailTo'])->name("sendmailto");

@@ -41,6 +41,8 @@
                             <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                         </form>
                         <a href="{{ route('students.show', $students->id)}}" class="btn btn-primary btn-sm"">Mostra</a>
+
+                        <a href="{{ route('sendmailto', $students->id)}}" class="btn btn-primary btn-sm"">Mail</a>
                     </td>
                 </tr>
             @endforeach

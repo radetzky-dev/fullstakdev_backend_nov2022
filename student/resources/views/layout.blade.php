@@ -21,6 +21,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('getbustime') }}">Bus</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('timetable') }}">Time</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('sendmail') }}">Mail</a>
+                    </li>
                 </ul>
 
                 <form method="post" action="{{ url('search') }}">

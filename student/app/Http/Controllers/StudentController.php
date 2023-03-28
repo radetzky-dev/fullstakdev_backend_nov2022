@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
-use Illuminate\Http\Request;
 use App\Services\SchoolbusService;
-
+use App\Services\SendMailService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class StudentController extends Controller
 {
- /*   protected $schoolbusService;
-
-    public function __construct(SchoolbusService $schoolbusService)
+    protected $sendmailService;
+    public function __construct(SendMailService $sendmailService)
     {
-        $this->schoolbusService = $schoolbusService;
-    } */
+        $this->sendmailService = $sendmailService;
+    }
 
     /**
      * Display a listing of the resource.
@@ -79,7 +78,8 @@ class StudentController extends Controller
             'password' => 'required|max:255',
         ]);
         Student::whereId($id)->update($updateData);
-        return redirect('/students')->with('success', 'Studente '.$request->input("name").' aggiornato');
+
+        return redirect('/students')->with('success', 'Studente ' . $request->input("name") . ' aggiornato');
     }
 
     /**
@@ -90,7 +90,7 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
         $name = $student->name;
         $student->delete();
-        return redirect('/students')->with('success', 'Studente '.$name.' cancellato');
+        return redirect('/students')->with('success', 'Studente ' . $name . ' cancellato');
     }
 
     public function search(Request $request)
@@ -105,17 +105,24 @@ class StudentController extends Controller
         return view('index', compact('student'));
     }
 
-  /*  public function getbustime()
+    public function sendmail()
     {
-        echo "Gli orari del bus sono<br>";
-        echo $this->schoolbusService->drivers();
+        echo $this->sendmailService->send();
     }
 
-    */
+    public function sendmailTo($to)
+    {
+        echo $this->sendmailService->sendTo($to);
+    }
+
+    public function timetable()
+    {
+        return SchoolbusService::timetable();
+    }
+
 
     public function getbustime()
     {
-
         App::bind('SchoolbusService', function () {
             return new SchoolbusService();
         });
