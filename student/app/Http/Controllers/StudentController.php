@@ -80,4 +80,10 @@ class StudentController extends Controller
         $student->delete();
         return redirect('/students')->with('completed', 'Student has been deleted');
     }
+
+
+   public function helloworld()
+   {
+    echo "hello world";
+   } 
 }
