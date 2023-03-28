@@ -60,7 +60,7 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
+    {   
         $updateData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
@@ -68,7 +68,7 @@ class StudentController extends Controller
             'password' => 'required|max:255',
         ]);
         Student::whereId($id)->update($updateData);
-        return redirect('/students')->with('completed', 'Student has been updated');
+        return redirect('/students')->with('success', 'Studente '.$request->input("name").' aggiornato');
     }
 
     /**
@@ -77,8 +77,9 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         $student = Student::findOrFail($id);
+        $name = $student->name;
         $student->delete();
-        return redirect('/students')->with('completed', 'Student has been deleted');
+        return redirect('/students')->with('success', 'Studente '.$name.' cancellato');
     }
 
     public function search(Request $request)
