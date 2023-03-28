@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Services\SchoolbusService;
+
+use Illuminate\Support\Facades\App;
 
 class StudentController extends Controller
 {
+ /*   protected $schoolbusService;
+
+    public function __construct(SchoolbusService $schoolbusService)
+    {
+        $this->schoolbusService = $schoolbusService;
+    } */
+
     /**
      * Display a listing of the resource.
      */
@@ -61,7 +71,7 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {   
+    {
         $updateData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
@@ -94,4 +104,24 @@ class StudentController extends Controller
         } */
         return view('index', compact('student'));
     }
+
+  /*  public function getbustime()
+    {
+        echo "Gli orari del bus sono<br>";
+        echo $this->schoolbusService->drivers();
+    }
+
+    */
+
+    public function getbustime()
+    {
+
+        App::bind('SchoolbusService', function () {
+            return new SchoolbusService();
+        });
+
+        $bus = App::make("SchoolbusService");
+        return $bus->drivers();
+    }
+
 }

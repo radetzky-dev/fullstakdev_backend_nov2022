@@ -18,6 +18,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('students/create') }}">Inserisci</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('getbustime') }}">Bus</a>
+                    </li>
                 </ul>
 
                 <form method="post" action="{{ url('search') }}">
