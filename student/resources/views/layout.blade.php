@@ -12,12 +12,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Students</a>
+            <a class="navbar-brand" href="{{ url('students') }}">Students</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('students') }}">Mostra tutti</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('students/create') }}">Inserisci</a>
                     </li>
