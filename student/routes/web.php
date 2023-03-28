@@ -20,4 +20,4 @@ Route::get('/', function () {
 
 Route::resource('students', 'App\Http\Controllers\StudentController');
 
-Route::get('/helloworld', [StudentController::class, 'helloworld']);
+Route::post('search', [StudentController::class, 'search']);

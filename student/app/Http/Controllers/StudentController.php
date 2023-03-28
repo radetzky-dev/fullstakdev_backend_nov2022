@@ -81,9 +81,15 @@ class StudentController extends Controller
         return redirect('/students')->with('completed', 'Student has been deleted');
     }
 
-
-   public function helloworld()
-   {
-    echo "hello world";
-   } 
+    public function search(Request $request)
+    {
+        $find = $request->input('cerca');
+        $student = Student::where('name', 'LIKE', '%' . $find . '%')
+            ->orWhere('email', 'LIKE', '%' . $find . '%')
+            ->get();
+        /*    foreach ($results as $result) {
+        echo $result->name . " ". $result->email.'<br>';
+        } */
+        return view('index', compact('student'));
+    }
 }
