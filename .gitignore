@@ -1,5 +1,9 @@
 .DS_Store
 vendor/
+<<<<<<< HEAD
 student/routes/web.php
+=======
+.vscode/launch.json
+>>>>>>> Bruno-Laravel
 student/composer.json
 student/composer.lock
