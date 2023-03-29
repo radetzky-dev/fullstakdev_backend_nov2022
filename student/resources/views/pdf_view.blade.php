@@ -10,7 +10,10 @@
 </head>
 
 <body>
-
+<header>
+    <h1 class="text-center modal-title" >Lista User</h1>
+</header>
+<div class="container-fluid-sm text-center">
     <table class="table">
         <thead>
             <tr class="table-warning">
@@ -19,6 +22,9 @@
                 <td>Email</td>
                 <td>Phone</td>
                 <td>Password</td>
+                <td>Ceato il</td>
+                
+               
             </tr>
         </thead>
         <tbody>
@@ -29,7 +35,7 @@
                     <td>{{ $students['email'] }}</td>
                     <td>{{ $students['phone'] }}</td>
                     <td>{{ $students['password'] }}</td>
-                    <td class="text-center">
+                    <td>{{ $students['created_at'] }}</td>
                     </td>
                 </tr>
             @endforeach
