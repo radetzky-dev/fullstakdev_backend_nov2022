@@ -1,2 +1,5 @@
 .DS_Store
 vendor/
+.vscode/launch.json
+student/composer.json
+student/composer.lock
