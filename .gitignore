@@ -1,2 +1,5 @@
 .DS_Store
 vendor/
+student/routes/web.php
+student/composer.json
+student/composer.lock
