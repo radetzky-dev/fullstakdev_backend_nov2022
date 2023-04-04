@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Services\SchoolbusService;
 use App\Services\SendMailService;
+use App\Services\CreatePdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Library\Services\MusaOne;
@@ -143,6 +144,10 @@ class StudentController extends Controller
 
         $bus = App::make("SchoolbusService");
         return $bus->drivers();
+    }
+    public function exportPdf()
+    {
+        return CreatePdf::createPdf();
     }
 
 }
