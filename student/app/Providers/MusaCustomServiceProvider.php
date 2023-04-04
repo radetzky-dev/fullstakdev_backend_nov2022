@@ -13,7 +13,7 @@ class MusaCustomServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind('App\Library\Services\MusaOne', function ($app) {
-            return new MusaOne();
+            return new MusaOne('MusaCorporate');
           });
     }
 

@@ -12,7 +12,7 @@ use App\Library\Services\MusaOne;
 class StudentController extends Controller
 {
     protected $sendmailService;
-    protected $musaServiceInstance;
+
     public function __construct(SendMailService $sendmailService)
     {
         $this->sendmailService = $sendmailService;
