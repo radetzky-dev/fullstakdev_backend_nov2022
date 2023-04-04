@@ -19,7 +19,6 @@ Route::get('/', function () {
 });
 
 Route::resource('students', 'App\Http\Controllers\StudentController');
-
 Route::post('search', [StudentController::class, 'search']);
 Route::get('getbustime', [StudentController::class, 'getbustime']);
 Route::get('timetable', [StudentController::class, 'timetable']);
