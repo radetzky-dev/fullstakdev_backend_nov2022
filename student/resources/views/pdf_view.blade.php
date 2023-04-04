@@ -21,9 +21,7 @@
                 <td>Email</td>
                 <td>Phone</td>
                 <td>Password</td>
-                <td>Ceato il</td>
-                
-               
+                <td>Creato il</td>
             </tr>
         </thead>
         <tbody>
