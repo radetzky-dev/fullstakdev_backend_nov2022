@@ -7,13 +7,20 @@ use App\Services\SchoolbusService;
 use App\Services\SendMailService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Library\Services\MusaOne;
 
 class StudentController extends Controller
 {
     protected $sendmailService;
+    protected $musaServiceInstance;
     public function __construct(SendMailService $sendmailService)
     {
         $this->sendmailService = $sendmailService;
+    }
+
+    public function musa(MusaOne $musaServiceInstance)
+    {
+        echo $musaServiceInstance->sayHelloMusa();
     }
 
     /**

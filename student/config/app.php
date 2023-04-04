@@ -195,6 +195,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        * My service Providers...
+        */
+        App\Providers\MusaCustomServiceProvider::class,
+
     ],
 
     /*
