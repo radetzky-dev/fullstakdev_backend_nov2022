@@ -26,4 +26,4 @@ Route::get('timetable', [StudentController::class, 'timetable']);
 Route::get('sendmail', [StudentController::class, 'sendmail']);
 Route::get('sendmailto/{id}', [StudentController::class, 'sendmailTo'])->name("sendmailto");
 Route::get('musa', [StudentController::class, 'musa']);
-Route::get('musastudents', [StudentController::class, 'musastudents']);
+Route::get('musastudents/{id}', [StudentController::class, 'musastudents']);
