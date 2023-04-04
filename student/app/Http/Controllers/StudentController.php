@@ -8,13 +8,26 @@ use App\Services\SendMailService;
 use App\Services\CreatePdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Library\Services\MusaOne;
 
 class StudentController extends Controller
 {
     protected $sendmailService;
+
     public function __construct(SendMailService $sendmailService)
     {
         $this->sendmailService = $sendmailService;
+    }
+
+    public function musa(MusaOne $musaServiceInstance)
+    {
+        echo $musaServiceInstance->sayHelloMusa();
+    }
+
+    public function musastudents(MusaOne $musaServiceInstance, string $name)
+    {
+        $studentList= $musaServiceInstance->getStudentsList($name);
+        return view('musa', compact('studentList'));
     }
 
     /**

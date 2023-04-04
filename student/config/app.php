@@ -195,6 +195,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+
+
+        /*
+        * My service Providers...
+        */
+        App\Providers\MusaCustomServiceProvider::class,
     ],
 
     /*
