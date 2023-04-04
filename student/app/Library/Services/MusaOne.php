@@ -7,4 +7,15 @@ class MusaOne
     {
       return 'Hello from MusaOne!';
     }
+    
+    /**
+     * getStudentsList
+     *
+     * @return array
+     */
+    public function getStudentsList() : array
+    {
+        $students = ['mario rossi', 'silvia verdi', 'giacomo blue'];
+        return $students;
+    }
 }

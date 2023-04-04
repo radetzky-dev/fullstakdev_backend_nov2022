@@ -23,6 +23,12 @@ class StudentController extends Controller
         echo $musaServiceInstance->sayHelloMusa();
     }
 
+    public function musastudents(MusaOne $musaServiceInstance)
+    {
+        $studentList= $musaServiceInstance->getStudentsList();
+        return view('musa', compact('studentList'));
+    }
+
     /**
      * Display a listing of the resource.
      */
