@@ -31,3 +31,9 @@ Route::get('sendmailto/{id}', [StudentController::class, 'sendmailTo'])->name("s
 Route::get('musa', [StudentController::class, 'musa']);
 Route::get('musastudents/{id}', [StudentController::class, 'musastudents']);
 
+Route::get('multiparams', [StudentController::class, 'passaParams']);
+
+Route::get("cisono", function () {
+    return view('vista');
+});
+

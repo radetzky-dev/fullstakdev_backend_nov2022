@@ -134,7 +134,7 @@ class StudentController extends Controller
         return SchoolbusService::timetable();
     }
 
- //TODO inserire servizio crea pdf
+
  
     public function getbustime()
     {
@@ -148,6 +148,16 @@ class StudentController extends Controller
     public function exportPdf()
     {
         return CreatePdf::createPdf();
+    }
+
+    public function passaParams()
+    {
+        $data = [
+            "nome" => "Mario",
+            "cognome" => "Rossi",
+            "age" => 17,
+        ];
+        return view("multiparams", $data);
     }
 
 }
