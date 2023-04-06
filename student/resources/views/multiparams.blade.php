@@ -11,6 +11,7 @@ $array = ["name" => "barryvdh/laravel-dompdf",
 
 $records= ['uno','due'];
 $num =2;
+$myVar= false;
 ?>
 
 Ciao <b>{{$nome}}</b> {{$cognome}} <i>{{$age}}</i> {{$mario}} <br>
@@ -29,6 +30,59 @@ Stampo {{ $test}}
 @else
     Zero
 @endif
+
+<hr>
+Entra se falso<br>
+@unless ($myVar)
+    <a href="vaiqui">clicca</a>
+@endunless
+
+@if (!$myVar)
+    <a href="vaiqui">clicca qua</a>
+@endif
+
+<?php
+$prova=null;
+
+?>
+
+@empty($prova)
+    <!--  $records is "empty"...  -->
+    <?php $prova=2;
+    //commento php
+    ?>
+@endempty
+
+@isset($prova)
+    <!--  $records is defined and is not null... -->
+    {{-- commento blade --}}
+    dentro isset
+@endisset
+
+@auth
+    Sei autenticato
+@endauth
+ 
+@env('local')
+    Sono in locale mostro le variabili {{$test}} per il mi DEBUG
+@endenv
+
+@env('production')
+   Benvenuto in produzione!
+@endenv
+
+@sectionMissing('navigation')
+    <div class="pull-right">
+        MOSTRO MENU A DESTRA<br>
+    </div>
+@endif
+
+@guest
+    Sei un visitatore
+@endguest
+ 
+
+
 
 <hr>
 @if (count($records) === 1)
