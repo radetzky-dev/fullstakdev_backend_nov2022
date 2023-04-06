@@ -150,6 +150,8 @@ class StudentController extends Controller
         $student = Student::all();
         return CreatePdf::createPdfWithData($student, 'pdf_view');
        // return CreatePdf::createPdf();
+
+       //TODO stampa DIPLOMA con VOTO e STAMPA PAGELLA CON 5 materie e voto
     }
 
     public function passaParams()
