@@ -148,7 +148,7 @@ class StudentController extends Controller
     public function exportPdf()
     {
         $student = Student::all();
-        return CreatePdf::createPdfWithData($student, 'pdf_blue_view');
+        return CreatePdf::createPdfWithData($student, 'pdf_view');
        // return CreatePdf::createPdf();
     }
 

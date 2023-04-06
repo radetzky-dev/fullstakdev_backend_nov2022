@@ -17,6 +17,7 @@
         <table class="table">
             <thead>
                 <tr class="table-warning">
+                    <td>RIGA</td>
                     <td>ID</td>
                     <td>Name</td>
                     <td>Email</td>
@@ -35,12 +36,26 @@
                         @else
                         <tr>
                     @endif
+
+                    <?php
+                    $newDate = date("d-m-Y", strtotime($students['created_at']));
+
+                    $pwd = $students['password'];
+                    
+                    $lung = strlen($pwd);
+                    $newpwd="";
+                    for ($i=1; $i <= $lung ; $i++) {
+                        $newpwd= $newpwd.'*';
+                    }
+                    ?>
+
+                    <td>{{ $countLines }}</td>
                     <td>{{ $students['id'] }}</td>
                     <td>{{ $students['name'] }}</td>
                     <td>{{ $students['email'] }}</td>
                     <td>{{ $students['phone'] }}</td>
-                    <td>{{ $students['password'] }}</td>
-                    <td>{{ $students['created_at'] }}</td>
+                    <td>{{ $newpwd }}</td>
+                    <td>{{ $newDate}}</td>
                     </td>
                     </tr>
                     <?php $countLines++; ?>
