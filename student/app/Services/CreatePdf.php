@@ -37,8 +37,13 @@ class CreatePdf
      */
     public static function createPdfDiploma($data)
     {
-        $pdf = PDF::loadView('pdf.diploma', $data);
-        return $pdf->stream('diploma.pdf');
+       $pdffile = PDF::loadView('pdf.diplomasemplice', $data);
+
+      
+
+       // var_dump($pdf_file);
+       // die();
+        return $pdffile->stream('pdffinale.pdf');
     }
 
 }

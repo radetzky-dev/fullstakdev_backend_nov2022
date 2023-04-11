@@ -78,20 +78,7 @@
             color: #333;
             font-family: 'Open Sans', sans-serif;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-            /*background: -webkit-repeating-linear-gradient(
-      45deg,
-      #618597,
-      #618597 1px,
-      #b2cad6 1px,
-      #b2cad6 2px
-    );
-    background: repeating-linear-gradient(
-      90deg,
-      #618597,
-      #618597 1px,
-      #b2cad6 1px,
-      #b2cad6 2px
-    );*/
+  
         }
 
         .pm-certificate-container .outer-border {

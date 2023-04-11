@@ -27,6 +27,10 @@ Route::get('sendmail', [StudentController::class, 'sendmail']);
 Route::get('exportpdf', [StudentController::class, 'exportPdf'])->name('exportpdf');
 Route::get('creadiploma/{name}', [StudentController::class, 'createDiploma'])->name("creadiploma");
 
+Route::get('/creadiplomatest', function () {
+    return view('pdf.diploma', ['name'=>'paolo','voto'=>99]);
+});
+
 Route::get('sendmailto/{id}', [StudentController::class, 'sendmailTo'])->name("sendmailto");
 Route::get('musa', [StudentController::class, 'musa']);
 Route::get('musastudents/{id}', [StudentController::class, 'musastudents']);
