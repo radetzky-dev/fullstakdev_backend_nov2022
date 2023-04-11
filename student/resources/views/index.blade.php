@@ -45,6 +45,8 @@
                             <a href="{{ route('students.show', $students->id) }}" class="btn btn-primary btn-sm">Mostra</a>
 
                             <a href="{{ route('sendmailto', $students->id) }}" class="btn btn-primary btn-sm">Mail</a>
+
+                            <a href="{{ route('creadiploma', $students->name) }}" class="btn btn-primary btn-sm">Stampa diploma</a>
                         </td>
                     </tr>
                 @endforeach

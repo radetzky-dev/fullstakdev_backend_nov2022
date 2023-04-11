@@ -149,9 +149,23 @@ class StudentController extends Controller
     {
         $student = Student::all();
         return CreatePdf::createPdfWithData($student, 'pdf_view');
-       // return CreatePdf::createPdf();
+    }
+    
+    /**
+     * createDiploma
+     *
+     * @param  mixed $name
+     * @param  mixed $voto
+     */
+    public function createDiploma($name)
+    {
+        $voto = rand(60, 100);
+        $data = [
+            "name" => $name,
+            "voto" => $voto,
+        ];
 
-       //TODO stampa DIPLOMA con VOTO e STAMPA PAGELLA CON 5 materie e voto
+        return CreatePdf::createPdfDiploma($data);
     }
 
     public function passaParams()

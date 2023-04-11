@@ -25,7 +25,7 @@ Route::get('timetable', [StudentController::class, 'timetable']);
 Route::get('sendmail', [StudentController::class, 'sendmail']);
 
 Route::get('exportpdf', [StudentController::class, 'exportPdf'])->name('exportpdf');
-Route::get('sendmailto/{id}', [StudentController::class, 'sendmailTo'])->name("sendmailto");
+Route::get('creadiploma/{name}', [StudentController::class, 'createDiploma'])->name("creadiploma");
 
 Route::get('sendmailto/{id}', [StudentController::class, 'sendmailTo'])->name("sendmailto");
 Route::get('musa', [StudentController::class, 'musa']);

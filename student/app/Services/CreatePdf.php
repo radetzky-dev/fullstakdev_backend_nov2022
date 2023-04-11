@@ -17,11 +17,28 @@ class CreatePdf
         $pdf = PDF::loadView('pdf_view', $student)->setPaper('a4', 'landscape');
         return $pdf->stream('pdf_file.pdf');
     }
-
+    
+    /**
+     * createPdfWithData
+     *
+     * @param  mixed $student
+     * @param  mixed $finalView
+     */
     public static function createPdfWithData($student, $finalView)
     {
         $pdf = PDF::loadView('pdf.'.$finalView, compact('student'));
         return $pdf->stream('pdf_file.pdf');
+    }
+    
+    /**
+     * createPdfDiploma
+     *
+     * @param  mixed $data
+     */
+    public static function createPdfDiploma($data)
+    {
+        $pdf = PDF::loadView('pdf.diploma', $data);
+        return $pdf->stream('diploma.pdf');
     }
 
 }
