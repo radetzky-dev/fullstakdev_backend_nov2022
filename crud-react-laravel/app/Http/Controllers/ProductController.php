@@ -83,11 +83,9 @@ class ProductController extends Controller
         ]);
 
         try {
-
             $product->fill($request->post())->update();
 
             if ($request->hasFile('image')) {
-
                 // remove old image
                 if ($product->image) {
                     $exists = Storage::disk('public')->exists("product/image/{$product->image}");
