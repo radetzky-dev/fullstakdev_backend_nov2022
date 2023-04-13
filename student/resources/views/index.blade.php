@@ -44,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($student as $students)
+                @forelse ($student as $students)
                     <tr>
                         <td>{{ $students->id }}</td>
                         <td>{{ $students->name }}</td>
@@ -67,7 +67,9 @@
                                 diploma</a>
                         </td>
                     </tr>
-                @endforeach
+                    @empty
+                    <tr><td colspan=6>Nessun risultato</td></tr>
+                @endforelse
             </tbody>
         </table>
 
