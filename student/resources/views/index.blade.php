@@ -51,7 +51,8 @@
                         <tr>
                     @endif
                     <td>{{ $students->id }}</td>
-                    <td>{{ $students->name }}</td>
+                    <td>{{ $students->name }}
+                        <x-Alert :message="$students->name"/></td>
                     <td>{{ $students->email }}</td>
                     <td>{{ $students->phone }}</td>
                     <td>{{ $students->password }}</td>
@@ -150,7 +151,6 @@
         @php
             $isActive = true;
             $hasError = false;
-            
         @endphp
 
         <span @class([
@@ -175,6 +175,7 @@
 
         @includeWhen($isActive, 'sottovista', ['status' => 'attivo'])
       
+        <x-Alert message=”Attenzione”/>
 
     </div>
 @endsection
