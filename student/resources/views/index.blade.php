@@ -30,7 +30,7 @@
             </div><br />
         @endif
         <div class="mb-2 d-flex justify-content-end">
-            <a class="btn btn-outline-info  " href="{{ url('exportpdf') }}">Eporta in PDF </a>
+            <a class="btn btn-outline-info  " href="{{ url('exportpdf') }}">Eporta in PDF</a>
         </div>
         <table class="table">
             <thead>
@@ -150,6 +150,7 @@
         @php
             $isActive = true;
             $hasError = false;
+            
         @endphp
 
         <span @class([
@@ -163,6 +164,17 @@
         <span @style(['background-color: yellow', 'font-weight: bold' => $isActive])>Grassetto</span>
 
         <button type="submit" @disabled($isActive)>Submit</button>
+
+        <input type="email"
+        name="email"
+        value="email@laravel.com"
+        @readonly($isActive) />
+
+
+        @include('sottovista', ['status' => 'completo'])
+
+        @includeWhen($isActive, 'sottovista', ['status' => 'attivo'])
+      
 
     </div>
 @endsection
