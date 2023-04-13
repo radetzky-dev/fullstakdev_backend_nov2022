@@ -99,7 +99,8 @@
         @endforeach
 
         <hr>
-        <?php $user=[];
+        <?php $user = [];
+        $x=1;
         ?>
 
         <p>uno</p>
@@ -116,6 +117,11 @@
         @empty
             <p>No students</p>
         @endforelse
+
+        @while ($x <= 4)
+            <p>La variabile vale {{$x}}</p>
+            <?php $x++;?>
+        @endwhile
 
     </div>
 @endsection
