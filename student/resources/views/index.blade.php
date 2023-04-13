@@ -45,7 +45,11 @@
             </thead>
             <tbody>
                 @forelse ($student as $students)
-                    <tr>
+                    @if ($loop->even)
+                        <tr class="bg-info">
+                    @else
+                        <tr>
+                    @endif
                         <td>{{ $students->id }}</td>
                         <td>{{ $students->name }}</td>
                         <td>{{ $students->email }}</td>
@@ -67,8 +71,10 @@
                                 diploma</a>
                         </td>
                     </tr>
-                    @empty
-                    <tr><td colspan=6>Nessun risultato</td></tr>
+                @empty
+                    <tr>
+                        <td colspan=6>Nessun risultato</td>
+                    </tr>
                 @endforelse
             </tbody>
         </table>
@@ -97,12 +103,26 @@
         <hr>
 
         @foreach ($student as $students)
-            <p>This is student id: {{ $students->id }}</p>
+            @if ($loop->first)
+                Questo è il primo {{ $students->id }}<br>
+            @endif
+
+            @if ($loop->last)
+                Questo è l'ultimo {{ $students->id }}<br>
+            @endif
+
+            <p>This is student id: {{ $students->id }} questa è l'iterazione {{$loop->iteration}} ne mancano {{$loop->remaining}}</p>
+
+            @if ($loop->remaining ==0)
+            <p>creo pdf con ultimo file</p>
+            @endif
+
+            Totale {{$loop->iteration}}
         @endforeach
 
         <hr>
         <?php $user = [];
-        $x=1;
+        $x = 1;
         ?>
 
         <p>uno</p>
@@ -121,8 +141,8 @@
         @endforelse
 
         @while ($x <= 4)
-            <p>La variabile vale {{$x}}</p>
-            <?php $x++;?>
+            <p>La variabile vale {{ $x }}</p>
+            <?php $x++; ?>
         @endwhile
 
     </div>
