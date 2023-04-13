@@ -6,6 +6,17 @@
         }
     </style>
 
+    <h3>Lista studenti</h3>
+
+    @env('local')
+    <p>Sto sviluppando in locale</p>
+    debug {{$student}}
+    @endenv
+
+    @env('production')
+    <p>Sono in produzione!</p>
+    @endenv
+
     <div class="push-top">
         @if (session()->get('success'))
             <div class="alert alert-success">
@@ -46,7 +57,8 @@
 
                             <a href="{{ route('sendmailto', $students->id) }}" class="btn btn-primary btn-sm">Mail</a>
 
-                            <a href="{{ route('creadiploma', $students->name) }}" class="btn btn-primary btn-sm">Stampa diploma</a>
+                            <a href="{{ route('creadiploma', $students->name) }}" class="btn btn-primary btn-sm">Stampa
+                                diploma</a>
                         </td>
                     </tr>
                 @endforeach
