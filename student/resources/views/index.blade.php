@@ -10,12 +10,18 @@
 
     @env('local')
     <p>Sto sviluppando in locale</p>
-    debug {{$student}}
+    debug {{ $student }}
     @endenv
 
     @env('production')
     <p>Sono in produzione!</p>
     @endenv
+
+    @sectionMissing('prova')
+        <div class="pull-right">
+            <p>Questa è la sezione di prova</p>
+        </div>
+    @endif
 
     <div class="push-top">
         @if (session()->get('success'))
@@ -64,5 +70,24 @@
                 @endforeach
             </tbody>
         </table>
+
+<?php $myVar=6; ?>
+
+@switch($myVar)
+    @case(1)
+        First case...
+        @break
+ 
+    @case(5)
+        Vale cinque!
+        @break
+ 
+    @default
+        Valore di default
+@endswitch
+
+<hr>
+
+
     </div>
 @endsection
