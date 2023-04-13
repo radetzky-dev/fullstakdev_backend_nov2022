@@ -14,9 +14,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('pdf_view');
-});
+
 
 Route::resource('students', 'App\Http\Controllers\StudentController');
 Route::post('search', [StudentController::class, 'search']);
