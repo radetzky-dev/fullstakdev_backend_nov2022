@@ -71,23 +71,51 @@
             </tbody>
         </table>
 
-<?php $myVar=6; ?>
+        <?php $myVar = 6; ?>
 
-@switch($myVar)
-    @case(1)
-        First case...
-        @break
- 
-    @case(5)
-        Vale cinque!
-        @break
- 
-    @default
-        Valore di default
-@endswitch
+        @switch($myVar)
+            @case(1)
+                First case...
+            @break
 
-<hr>
+            @case(5)
+                Vale cinque!
+            @break
 
+            @default
+                Valore di default
+        @endswitch
+
+        <hr>
+
+        @for ($i = 1; $i <= 5; $i++)
+            The current value is {{ $i }} <br>
+        @endfor
+
+        <hr>
+
+        @foreach ($student as $students)
+            <p>This is student id: {{ $students->id }}</p>
+        @endforeach
+
+        <hr>
+        <?php $user=[];
+        ?>
+
+        <p>uno</p>
+        @isset($user)
+            @foreach ($user as $users)
+                <p>This is student id: {{ $users->id }}</p>
+            @endforeach
+        @endisset
+
+
+        <p>Due</p>
+        @forelse ($user as $users)
+            <li>{{ $users->name }}</li>
+        @empty
+            <p>No students</p>
+        @endforelse
 
     </div>
 @endsection
