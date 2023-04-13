@@ -47,29 +47,29 @@
                 @forelse ($student as $students)
                     @if ($loop->even)
                         <tr class="bg-info">
-                    @else
+                        @else
                         <tr>
                     @endif
-                        <td>{{ $students->id }}</td>
-                        <td>{{ $students->name }}</td>
-                        <td>{{ $students->email }}</td>
-                        <td>{{ $students->phone }}</td>
-                        <td>{{ $students->password }}</td>
-                        <td class="text-center">
-                            <a href="{{ route('students.edit', $students->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <form action="{{ route('students.destroy', $students->id) }}" method="post"
-                                style="display: inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                            </form>
-                            <a href="{{ route('students.show', $students->id) }}" class="btn btn-primary btn-sm">Mostra</a>
+                    <td>{{ $students->id }}</td>
+                    <td>{{ $students->name }}</td>
+                    <td>{{ $students->email }}</td>
+                    <td>{{ $students->phone }}</td>
+                    <td>{{ $students->password }}</td>
+                    <td class="text-center">
+                        <a href="{{ route('students.edit', $students->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                        <form action="{{ route('students.destroy', $students->id) }}" method="post"
+                            style="display: inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                        </form>
+                        <a href="{{ route('students.show', $students->id) }}" class="btn btn-primary btn-sm">Mostra</a>
 
-                            <a href="{{ route('sendmailto', $students->id) }}" class="btn btn-primary btn-sm">Mail</a>
+                        <a href="{{ route('sendmailto', $students->id) }}" class="btn btn-primary btn-sm">Mail</a>
 
-                            <a href="{{ route('creadiploma', $students->name) }}" class="btn btn-primary btn-sm">Stampa
-                                diploma</a>
-                        </td>
+                        <a href="{{ route('creadiploma', $students->name) }}" class="btn btn-primary btn-sm">Stampa
+                            diploma</a>
+                    </td>
                     </tr>
                 @empty
                     <tr>
@@ -111,13 +111,14 @@
                 Questo è l'ultimo {{ $students->id }}<br>
             @endif
 
-            <p>This is student id: {{ $students->id }} questa è l'iterazione {{$loop->iteration}} ne mancano {{$loop->remaining}}</p>
+            <p>This is student id: {{ $students->id }} questa è l'iterazione {{ $loop->iteration }} ne mancano
+                {{ $loop->remaining }}</p>
 
-            @if ($loop->remaining ==0)
-            <p>creo pdf con ultimo file</p>
+            @if ($loop->remaining == 0)
+                <p>creo pdf con ultimo file</p>
             @endif
 
-            Totale {{$loop->iteration}}
+            Totale {{ $loop->iteration }}
         @endforeach
 
         <hr>
@@ -144,6 +145,24 @@
             <p>La variabile vale {{ $x }}</p>
             <?php $x++; ?>
         @endwhile
+
+
+        @php
+            $isActive = true;
+            $hasError = false;
+        @endphp
+
+        <span @class([
+            'p-4',
+            'font-bold' => $isActive,
+            'btn btn-danger' => $hasError,
+            'text-gray-500' => !$isActive,
+            'bg-red' => $hasError,
+        ])>ATTENZIONE</span>
+
+        <span @style(['background-color: yellow', 'font-weight: bold' => $isActive])>Grassetto</span>
+
+        <button type="submit" @disabled($isActive)>Submit</button>
 
     </div>
 @endsection
