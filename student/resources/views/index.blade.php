@@ -165,6 +165,9 @@
 
         <button type="submit" @disabled($isActive)>Submit</button>
 
+        <x-sidebar>
+            <h2>Prova</h2>
+        </x-sidebar>
         <input type="email"
         name="email"
         value="email@laravel.com"
@@ -176,6 +179,16 @@
         @includeWhen($isActive, 'sottovista', ['status' => 'attivo'])
       
         <x-Alert message=”Attenzione”/>
+
+
+        <x-sidebar>
+            <h3>Titolo</h3>
+            <ul>
+                <li>Home</li>
+                <li>Articles</li>
+                <li>About</li>
+            </ul>
+        </x-sidebar>
 
     </div>
 @endsection
