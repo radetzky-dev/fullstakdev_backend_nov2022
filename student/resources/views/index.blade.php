@@ -52,7 +52,7 @@
                     @endif
                     <td>{{ $students->id }}</td>
                     <td>{{ $students->name }}
-                        <x-Alert :message="$students->name"/></td>
+                        </td>
                     <td>{{ $students->email }}</td>
                     <td>{{ $students->phone }}</td>
                     <td>{{ $students->password }}</td>
@@ -178,7 +178,6 @@
 
         @includeWhen($isActive, 'sottovista', ['status' => 'attivo'])
       
-        <x-Alert message=”Attenzione”/>
 
 
         <x-sidebar>
@@ -189,6 +188,15 @@
                 <li>About</li>
             </ul>
         </x-sidebar>
+
+        <hr>
+
+        @inject('bus', 'App\Services\SchoolbusService')
+ 
+<div>
+    Bus timetable {{ $bus->timetable() }}.
+    Bus autisti {{ $bus->drivers() }}.
+</div>
 
     </div>
 @endsection

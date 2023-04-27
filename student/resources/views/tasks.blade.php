@@ -1,3 +1,5 @@
+
+
 <x-layout>
     <x-slot:title>
         Cosa da fare

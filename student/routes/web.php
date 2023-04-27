@@ -48,4 +48,3 @@ Route::get("tasks", function () {
 Route::get("anagrafica", function () {
     return view('anagrafica');
 });
-
