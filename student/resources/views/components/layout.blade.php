@@ -13,6 +13,7 @@
     {{ $slot }}
     <hr />
     <nav>
+        <p>{{ $hello ?? 'Ciao' }}</p>
         <p>questo è il footer</p>
     </nav>
 </body>
