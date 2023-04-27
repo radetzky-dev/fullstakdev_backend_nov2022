@@ -9,6 +9,7 @@ class TelegramController extends Controller
 {
     public function index()
     {
+        //https://telegram-bot-sdk.com/docs/guides/available-methods-examples#get-updates
        $response= Telegram::bot('mybot')->getMe();
 
     //   echo $response;
