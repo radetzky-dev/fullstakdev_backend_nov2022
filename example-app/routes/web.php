@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GreetingController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TelegramController;
 use Illuminate\Http\Request;
 
 /*
@@ -98,4 +99,8 @@ Route::controller(OrderController::class)->group(function () {
     Route::post('/store', 'store')->name('store');
     Route::put('/showresult/{id}', 'update')->name('update');
     Route::delete('/delete/{id}', 'destroy')->name('delete');
+});
+
+Route::controller(TelegramController::class)->group(function () {
+    Route::get('/bot', 'index');
 });
