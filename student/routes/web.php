@@ -41,3 +41,11 @@ Route::get("cisono", function () {
 
 Route::get('componenti', [StudentController::class, 'componenti']);
 
+Route::get("tasks", function () {
+    return view('tasks');
+});
+
+Route::get("anagrafica", function () {
+    return view('anagrafica');
+});
+
