@@ -1,3 +1,4 @@
 <div>
-    <h2>Sono il componente {{$sigla}} {{$title}} {{ $isSelected(true) ? 'selected' : 'not selected' }}</h2>
+    <p>Opzione {{$opzione}}</p>
+    <h2>Sono un componente {{$testo}} {{$title}}  {{ $isSelected($opzione) ? 'selected' : 'not selected' }}</h2>
 </div>

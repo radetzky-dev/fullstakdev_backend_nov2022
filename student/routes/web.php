@@ -39,3 +39,5 @@ Route::get("cisono", function () {
     return view('vista');
 });
 
+Route::get('componenti', [StudentController::class, 'componenti']);
+

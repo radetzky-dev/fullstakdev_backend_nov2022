@@ -9,18 +9,25 @@ use Illuminate\View\Component;
 class Alert extends Component
 {
     public $title = "";
+    public $opzione = false;
     public $selected = false;
     /**
      * Create a new component instance.
      */
-    public function __construct($message)
+    public function __construct($message, $opzione)
     {
         $this->title = $message;
+        $this->opzione = $opzione;
     }
 
     public function isSelected(string $option): bool
     {
-        return $option === $this->selected;
+        if ($option == "true") {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     /**
@@ -29,7 +36,7 @@ class Alert extends Component
     public function render(): View | Closure | string
     {
         $data = [
-            "sigla" => "sig.",
+            "testo" => "questo testo è stato aggiunto in automatico",
         ];
         return view('components.alert', $data);
     }

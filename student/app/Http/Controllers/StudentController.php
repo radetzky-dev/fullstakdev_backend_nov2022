@@ -178,4 +178,9 @@ class StudentController extends Controller
         return view("multiparams", $data);
     }
 
+    public function componenti()
+    {
+        return view("componenti");
+    }
+
 }
