@@ -30,6 +30,11 @@ class Alert extends Component
 
     }
 
+    public function addText(string $text)
+    {
+        return $text. " testo aggiuntivo!";
+    }
+
     /**
      * Get the view / contents that represent the component.
      */
