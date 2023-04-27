@@ -8,6 +8,8 @@
 
     <h3>Lista studenti</h3>
 
+    <div class="test">questo cambia colore grazie a vite</div>
+
     @env('local')
     <p>Sto sviluppando in locale</p>
     debug {{ $student }}
