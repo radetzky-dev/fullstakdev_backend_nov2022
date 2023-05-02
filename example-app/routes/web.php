@@ -108,3 +108,11 @@ Route::controller(TelegramController::class)->group(function () {
 use App\Http\Controllers\NewtelegramController;
  
 Route::resource('telegrambot', NewtelegramController::class);
+
+
+use App\Http\Middleware\EnsureTokenIsValid;
+
+ 
+Route::get('/profile', function () {
+   return view("prova");
+})->middleware(EnsureTokenIsValid::class, 'auth', 'guest');
