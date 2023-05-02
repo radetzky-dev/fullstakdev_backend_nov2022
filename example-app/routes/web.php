@@ -104,3 +104,7 @@ Route::controller(OrderController::class)->group(function () {
 Route::controller(TelegramController::class)->group(function () {
     Route::get('/bot', 'index');
 });
+
+use App\Http\Controllers\NewtelegramController;
+ 
+Route::resource('telegrambot', NewtelegramController::class);
