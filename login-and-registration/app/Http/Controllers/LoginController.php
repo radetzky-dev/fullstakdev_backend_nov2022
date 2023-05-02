@@ -20,9 +20,9 @@ class LoginController extends Controller
 
     /**
      * Handle account login request
-     * 
+     *
      * @param LoginRequest $request
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function login(LoginRequest $request)

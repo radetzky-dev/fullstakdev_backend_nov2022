@@ -4,6 +4,10 @@
     <div class="bg-light p-5 rounded">
         @auth
         <h1>Dashboard</h1>
+       <?php
+         $id = Auth::user()->id;
+         echo "User id ".$id."<br> Session ".Session::getId();
+        ?>
         <p class="lead">Sono autenticato</p>
         <a class="btn btn-lg btn-primary" href="https://google.com" role="button">Cerca su Google &raquo;</a>
         @endauth
