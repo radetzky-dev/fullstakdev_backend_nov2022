@@ -15,6 +15,9 @@
         @guest
         <h1>Homepage</h1>
         <p class="lead">NON SEI LOGGATO. Loggati.</p>
+        <?php
+           echo "Session ".Session::getId();
+        ?>
         @endguest
     </div>
 @endsection
