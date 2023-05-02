@@ -8,7 +8,7 @@
          $id = Auth::user()->id;
          echo "User id ".$id."<br> Session ".Session::getId();
         ?>
-        <p class="lead">Sono autenticato</p>
+        <p class="lead">Sei autenticato. Ciao {{auth()->user()->username}}</p>
         <a class="btn btn-lg btn-primary" href="https://google.com" role="button">Cerca su Google &raquo;</a>
         @endauth
 
