@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\Services\MusaOne;
 use App\Models\Student;
+use App\Services\CreatePdf;
 use App\Services\SchoolbusService;
 use App\Services\SendMailService;
-use App\Services\CreatePdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use App\Library\Services\MusaOne;
+use Illuminate\Support\Facades\Log;
 
 class StudentController extends Controller
 {
@@ -26,7 +27,7 @@ class StudentController extends Controller
 
     public function musastudents(MusaOne $musaServiceInstance, string $name)
     {
-        $studentList= $musaServiceInstance->getStudentsList($name);
+        $studentList = $musaServiceInstance->getStudentsList($name);
         return view('musa', compact('studentList'));
     }
 
@@ -35,6 +36,8 @@ class StudentController extends Controller
      */
     public function index()
     {
+        Log::info( __CLASS__.' '. __FUNCTION__ .' Mostro la lista degli studenti...');
+
         $student = Student::all();
         return view('index', compact('student'));
     }
@@ -44,6 +47,7 @@ class StudentController extends Controller
      */
     public function create()
     {
+        Log::debug( __CLASS__.' '. __FUNCTION__ .' Creo un nuovo studente...');
         return view('create');
     }
 
@@ -52,12 +56,23 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        Log::debug( __CLASS__.' '. __FUNCTION__ .' Provo a creare un nuovo studente con nome :' . $request->name);
         $storeData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
             'password' => 'required|max:255',
         ]);
+        Log::debug('Validazione OK, inserisco nel db');
+
+        try {
+            throw new \RuntimeException("mia eccezione erroe numero riga...");
+        } catch (\RuntimeException $e) {
+            Log::error("Class: " . __CLASS__. ", Function: " . __FUNCTION__);
+
+            Log::error(' ERRORE nel salvataggio! ' . $e->getMessage());
+        }
+
         $student = Student::create($storeData);
         return redirect('/students')->with('completed', 'Student has been saved!');
     }
@@ -67,7 +82,9 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
+        Log::info( __CLASS__.' '. __FUNCTION__ .' Cerco utente con id: ' . $id);
         $student = Student::findOrFail($id);
+        Log::info('Utente trovato con nome ' . $student->name);
         return view('show', compact('student'));
     }
 
@@ -134,8 +151,6 @@ class StudentController extends Controller
         return SchoolbusService::timetable();
     }
 
-
- 
     public function getbustime()
     {
         App::bind('SchoolbusService', function () {
@@ -150,7 +165,7 @@ class StudentController extends Controller
         $student = Student::all();
         return CreatePdf::createPdfWithData($student, 'pdf_view');
     }
-    
+
     /**
      * createDiploma
      *
