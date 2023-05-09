@@ -123,7 +123,13 @@ class StudentController extends Controller
         $student->delete();
         return redirect('/students')->with('success', 'Studente ' . $name . ' cancellato');
     }
-
+    
+    /**
+     * search
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function search(Request $request)
     {
         $find = $request->input('cerca');
@@ -135,12 +141,23 @@ class StudentController extends Controller
         } */
         return view('index', compact('student'));
     }
-
+    
+    /**
+     * sendmail
+     *
+     * @return void
+     */
     public function sendmail()
     {
         echo $this->sendmailService->send();
     }
-
+    
+    /**
+     * sendmailTo
+     *
+     * @param  mixed $to
+     * @return void
+     */
     public function sendmailTo($to)
     {
         echo $this->sendmailService->sendTo($to);
