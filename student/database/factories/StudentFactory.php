@@ -21,7 +21,7 @@ class StudentFactory extends Factory
         $lastname = fake()->lastName();
         $mail = $name.'.'.$lastname.'@'.fake()->domainName();
 
-        echo "Stato ".fake()->state().'\n*';
+        echo "Stato ".fake()->state().' *';
 
         return [
             'name' => $name.' '.$lastname . '('.fake()->state().')' . '('.fake()->city().')',
