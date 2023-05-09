@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Student>
  */
@@ -16,10 +17,14 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->firstName();
+        $lastname = fake()->lastName();
+        $mail = $name.'.'.$lastname.'@'.fake()->domainName();
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'phone' => fake()->phoneNumber(),
+            'name' => $name.' '.$lastname,
+            'email' => $mail,
+            'phone' => "+39 34".fake()->unique()->numerify('########'),
             'password' => fake()->password(),
         ];
     }
