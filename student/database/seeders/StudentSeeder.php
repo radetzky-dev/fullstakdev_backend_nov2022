@@ -15,11 +15,16 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('students')->insert([
-            'name' => 'SIG.'.Str::random(10),
-            'email' => Str::random(10).'@yahoo.com',
-            'phone' => rand(10000, 5000000),
-            'password' => Hash::make('password'),
-        ]);
+        /*
+            DB::table('students')->insert([
+                'name' => 'SIG.'.   (10),
+                'email' => Str::random(10).'@yahoo.com',
+                'phone' => rand(10000, 5000000),
+                'password' => Hash::make('password'),
+            ]);
+            */
+
+            \App\Models\Student::factory(3)->create();
+
     }
 }
