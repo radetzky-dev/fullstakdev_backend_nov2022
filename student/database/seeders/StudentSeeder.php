@@ -24,7 +24,7 @@ class StudentSeeder extends Seeder
             ]);
             */
 
-            \App\Models\Student::factory(2)->create();
+            \App\Models\Student::factory(10)->create();
 
     }
 }

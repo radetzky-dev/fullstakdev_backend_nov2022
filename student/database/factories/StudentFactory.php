@@ -21,8 +21,10 @@ class StudentFactory extends Factory
         $lastname = fake()->lastName();
         $mail = $name.'.'.$lastname.'@'.fake()->domainName();
 
+        echo "Stato ".fake()->state().'\n*';
+
         return [
-            'name' => $name.' '.$lastname,
+            'name' => $name.' '.$lastname . '('.fake()->state().')' . '('.fake()->city().')',
             'email' => $mail,
             'phone' => "+39 34".fake()->unique()->numerify('########'),
             'password' => fake()->password(),
