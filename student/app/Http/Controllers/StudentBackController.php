@@ -30,4 +30,30 @@ class StudentBackController extends Controller
         $student = DB::select('select * from students');
         return view('index', compact('student'));
     }
+
+    public function insertFlight()
+    {
+
+        DB::insert('insert into flights (id, name,airline,capitale_sociale,email,students_id) 
+        values (?, ?,?,?,?,?)', 
+        [1, 'Marc','ITA',1000,'test@tets.it',1]);
+
+        echo "Inserito con successo!";
+    }
+
+    public function updateFlight()
+    {
+        DB::update(
+            'update flights set name = \'Giovanni\' where name = ?',
+            ['Marc']
+        );
+        echo "Update con successo!";
+    }
+
+    public function deleteFlight()
+    {
+        DB::delete('delete from flights');
+        echo "Cancellato tutto con successo!";
+    }
+
 }

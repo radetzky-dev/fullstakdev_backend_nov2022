@@ -18,6 +18,11 @@ use App\Http\Controllers\StudentBackController;
 
 Route::get('getid/{id}', [StudentBackController::class, 'getId']);
 Route::get('getall', [StudentBackController::class, 'getAll']);
+Route::get('insertf', [StudentBackController::class, 'insertFlight']);
+Route::get('updatef', [StudentBackController::class, 'updateFlight']);
+Route::get('deletef', [StudentBackController::class, 'deleteFlight']);
+
+
 
 Route::resource('students', 'App\Http\Controllers\StudentController');
 Route::post('search', [StudentController::class, 'search']);
