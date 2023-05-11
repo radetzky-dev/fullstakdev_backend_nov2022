@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('flights', function (Blueprint $table) {
             $table->string('name', 50)->change();
+            //$table->renameColumn('capitale_sociale', 'money');
             $table->text('description')->after('airline')->nullable();
         });
     }
@@ -24,6 +25,7 @@ return new class extends Migration
     {
         Schema::table('flights', function (Blueprint $table) {
             $table->string('name')->change();
+           // $table->renameColumn('money', 'capitale_sociale');
             $table->dropColumn('description');
         });
     }
