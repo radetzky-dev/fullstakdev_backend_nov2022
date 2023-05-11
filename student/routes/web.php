@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentBackController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-
+Route::get('getid/{id}', [StudentBackController::class, 'getid']);
 
 Route::resource('students', 'App\Http\Controllers\StudentController');
 Route::post('search', [StudentController::class, 'search']);
