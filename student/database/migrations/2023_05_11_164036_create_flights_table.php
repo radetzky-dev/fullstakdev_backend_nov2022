@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('flights', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('airline');
+            $table->string('airline',100);
             $table->boolean('active')->default(true);
+            $table->float('capitale_sociale');
+            $table->enum('classi', ['economy', 'business']);
             $table->timestamps();
         });
     }
