@@ -12,7 +12,7 @@
 
     @env('local')
     <p>Sto sviluppando in locale</p>
-    debug {{ $student }}
+
     @endenv
 
     @env('production')
