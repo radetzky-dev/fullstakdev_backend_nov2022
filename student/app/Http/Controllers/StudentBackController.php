@@ -56,4 +56,29 @@ class StudentBackController extends Controller
         echo "Cancellato tutto con successo!";
     }
 
+    public function doPayment()
+    {
+        //servicePayment ->
+    }
+
+    /* SERVICE
+    DB::beginTransaction();
+
+try {
+    DB::insert(...);
+    Log inserito 1
+    DB::insert(...);
+      Log inserito 2
+    DB::update(...);
+    Log inserito 3
+
+    DB::commit();
+    // all good
+} catch (\Exception $e) {
+    DB::rollback();
+    Log:error eè adnato male
+    // something went wrong
+}
+    */
+
 }
