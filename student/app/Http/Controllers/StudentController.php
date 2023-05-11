@@ -84,6 +84,7 @@ class StudentController extends Controller
     {
         Log::info( __CLASS__.' '. __FUNCTION__ .' Cerco utente con id: ' . $id);
         $student = Student::findOrFail($id);
+
         Log::info('Utente trovato con nome ' . $student->name);
         return view('show', compact('student'));
     }

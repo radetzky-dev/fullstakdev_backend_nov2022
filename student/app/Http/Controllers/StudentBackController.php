@@ -9,10 +9,13 @@ class StudentBackController extends Controller
 {
     public function getId(string $id)
     {
-        echo "get id ".$id;
-        $students = DB::select('select * from students where id = ?', [$id]);
+        //echo "get id ".$id;
+        $student = DB::select('select * from students where id = ?', [$id]);
         echo '<pre>';
-        var_dump($students);
-        echo '</pre>';
+        var_dump($student);
+        echo '</pre>';  
+
+
+        //return view('show', compact('student'));
     }
 }

@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <style>
         .container {
             max-width: 450px;
