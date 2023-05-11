@@ -12,10 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('flights', function (Blueprint $table) {
-            $table->string('name', 50)->change();
-         //   $table->rename('capitale_sociale', 'money');
-            $table->text('description')->after('airline')->nullable();
-            $table->string('email')->unique();
+           $table->unsignedBigInteger('students_id');
+            $table->foreign('students_id')->references('id')->on('students');
         });
     }
 
@@ -25,10 +23,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('flights', function (Blueprint $table) {
-            $table->string('name')->change();
-           // $table->rename('capitale_sociale', 'fligths');
-            $table->dropColumn('description');
-            $table->dropColumn('email');
+           
+        $table->dropForeign('flights_students_id_foreign');
+        $table->dropColumn('students_id');
         });
     }
 };
