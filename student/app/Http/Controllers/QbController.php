@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 
 class QbController extends Controller
 {
@@ -17,10 +16,27 @@ class QbController extends Controller
 
     public function getName($name): View
     {
-        $student = DB::table('students')->where('name', $name)->first();
-        Log::info('Utente trovato con nome ' . $student->name);
-        return view('show', compact('student'));
+        $student = DB::table('students')
+            ->where('name', $name)
+        //    ->where('phone', '3481967485')
+            ->first();
+
+        if ($student !== null) {
+            Log::info('Studente trovato con nome ' . $student->name);
+            return view('show', compact('student'));
+        } else {
+            Log::error('Studente NON trovato');
+            $student = [];
+            return view('index', compact('student'));
+        }
+
     }
 
+    public function getById($id): View
+    {
+        $student = DB::table('students')->find($id);
+        Log::info('Studente trovato con id ' . $student->name);
+        return view('show', compact('student'));
+    }
 
 }

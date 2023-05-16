@@ -25,6 +25,7 @@ Route::get('deletef', [StudentBackController::class, 'deleteFlight']);
 
 Route::get('qbindex', [QbController::class, 'index']);
 Route::get('qbname/{name}', [QbController::class, 'getName']);
+Route::get('qbid/{id}', [QbController::class, 'getById']);
 
 
 
