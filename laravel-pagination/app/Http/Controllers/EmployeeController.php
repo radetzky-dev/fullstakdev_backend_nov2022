@@ -8,7 +8,7 @@ class EmployeeController extends Controller
 {
     public function getData()
     {
-        $employees = Employee::paginate(8);
+        $employees = Employee::paginate(12);
         return view('home', compact('employees'));
     }
 }
