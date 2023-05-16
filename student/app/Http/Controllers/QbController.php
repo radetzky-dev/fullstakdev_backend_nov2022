@@ -10,6 +10,21 @@ class QbController extends Controller
 {
     public function index(): View
     {
+        $phones = DB::table('students')->pluck('phone');
+
+        foreach ($phones as $phone) {
+            echo $phone . '<br>';
+        }
+
+        echo '<hr>';
+        $titles = DB::table('students')->orderBy('name')->pluck('phone', 'name');
+
+        foreach ($titles as $name => $phone) {
+            echo $name.'<br>';
+        }
+
+        die();
+
         $students = DB::table('students')->get();
         return view('index', ['student' => $students]);
     }
