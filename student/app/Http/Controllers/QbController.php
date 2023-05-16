@@ -21,13 +21,22 @@ class QbController extends Controller
         var_dump($students);
 
         echo '<hr>';
+        echo "LIKE<br>";
+
+        $students = DB::table('students')
+        ->where('phone', 'LIKE', '%+39%')
+        ->get();
+
+        var_dump($students);
+     
+
+        echo '<hr>';
 
         $query = DB::table('students')->select('name');
- 
+
         $students = $query->addSelect('phone')->get();
 
         var_dump($students);
-
 
         $phones = DB::table('students')->pluck('phone');
 
@@ -39,7 +48,7 @@ class QbController extends Controller
         $titles = DB::table('students')->orderBy('name')->pluck('phone', 'name');
 
         foreach ($titles as $name => $phone) {
-            echo $name.'<br>';
+            echo $name . '<br>';
         }
 
         die();
@@ -51,7 +60,7 @@ class QbController extends Controller
     public function getName($name): View
     {
         $student = DB::table('students')
-            ->where('name', $name)
+            ->where('name',$name)
         //    ->where('phone', '3481967485')
             ->first();
 
