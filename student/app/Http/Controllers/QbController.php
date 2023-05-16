@@ -24,7 +24,7 @@ class QbController extends Controller
         echo "LIKE<br>";
 
         $students = DB::table('students')
-        ->where('phone', 'LIKE', '%+39%')
+        ->where('phone', 'LIKE', '+39%')
         ->get();
 
         var_dump($students);
@@ -60,7 +60,7 @@ class QbController extends Controller
     public function getName($name): View
     {
         $student = DB::table('students')
-            ->where('name',$name)
+            ->where('name', $name)
         //    ->where('phone', '3481967485')
             ->first();
 
