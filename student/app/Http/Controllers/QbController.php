@@ -10,6 +10,17 @@ class QbController extends Controller
 {
     public function index(): View
     {
+        $num = DB::table('students')->count();
+
+        echo "Gli studenti sono $num<br>";
+
+        $students = DB::table('students')
+            ->select('name', 'email as students_email')
+            ->get();
+
+        var_dump($students);
+
+
         $phones = DB::table('students')->pluck('phone');
 
         foreach ($phones as $phone) {
