@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentBackController;
+use App\Http\Controllers\QbController;
 
 
 /*
@@ -21,6 +22,9 @@ Route::get('getall', [StudentBackController::class, 'getAll']);
 Route::get('insertf', [StudentBackController::class, 'insertFlight']);
 Route::get('updatef', [StudentBackController::class, 'updateFlight']);
 Route::get('deletef', [StudentBackController::class, 'deleteFlight']);
+
+Route::get('qbindex', [QbController::class, 'index']);
+Route::get('qbname/{name}', [QbController::class, 'getName']);
 
 
 
