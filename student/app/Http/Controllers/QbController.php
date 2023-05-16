@@ -20,6 +20,14 @@ class QbController extends Controller
 
         var_dump($students);
 
+        echo '<hr>';
+
+        $query = DB::table('students')->select('name');
+ 
+        $students = $query->addSelect('phone')->get();
+
+        var_dump($students);
+
 
         $phones = DB::table('students')->pluck('phone');
 
