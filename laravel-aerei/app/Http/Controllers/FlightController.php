@@ -13,6 +13,26 @@ class FlightController extends Controller
      */
     public function index()
     {
+
+        /* update
+        $flight = Flight::find(2);
+        $flight->name = 'Paris to London';
+        $flight->save();
+        */
+
+        /* mutiple update
+        Flight::where('number', 11111)
+      ->where('company', 'alitalia')
+      ->update(['destination' => 'madrid']);
+
+      */
+
+      /* delete
+      $flight = Flight::find(2);
+      $flight->delete();
+
+      */
+
         $flights = Flight::all();
         return view('index', compact('flights'));
     }
@@ -28,7 +48,7 @@ class FlightController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) 
+    public function store(Request $request)
     {
             $flight = new Flight;
             $flight->name = $request->name;
