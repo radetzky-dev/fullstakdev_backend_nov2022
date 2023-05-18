@@ -20,3 +20,5 @@ Route::get('/', function () {
 use App\Http\Controllers\EmployeeController;
 
 Route::get('/', [EmployeeController::class, 'getData']);
+
+Route::get('/all', [EmployeeController::class, 'getAll']);
