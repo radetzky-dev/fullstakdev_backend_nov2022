@@ -33,6 +33,8 @@ class FlightController extends Controller
 
       */
 
+     // Flight::destroy(1);
+
         $flights = Flight::all();
         return view('index', compact('flights'));
     }
