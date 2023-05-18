@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreFlightRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateFlightRequest;
 use App\Models\Flight;
 
@@ -13,7 +13,8 @@ class FlightController extends Controller
      */
     public function index()
     {
-        //
+        $flights = Flight::all();
+        return view('index', compact('flights'));
     }
 
     /**
@@ -21,15 +22,21 @@ class FlightController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFlightRequest $request)
+    public function store(Request $request) 
     {
-        //
+            $flight = new Flight;
+            $flight->name = $request->name;
+            $flight->destination = $request->destination;
+            $flight->company = $request->company;
+            $flight->number = $request->number;
+            $flight->save();
+            return redirect('/flights');
     }
 
     /**
