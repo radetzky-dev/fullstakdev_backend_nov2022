@@ -51,8 +51,18 @@ class EmployeeController extends Controller
 
         echo "<hr>";
 
-        $employee = Employee::find(501);
-        var_dump($employee);
+        $flight = Employee::where('firstname', 'Samantha')->firstOr(function () {
+            echo "Non c'è nessuno bruno";
+        });
+
+        echo $flight->firstname.'<br>';
+      
+        $result = Employee::findOr(501, function () {
+            echo "Non esiste";
+            die();
+        });
+
+        echo $result->firstname;
 
         /*
         $count = 0;
