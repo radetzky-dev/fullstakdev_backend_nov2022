@@ -21,7 +21,6 @@ class EmployeeController extends Controller
 
         echo $employee->id. ' '. $employee->firstname. ' '.$employee->lastname.'<br>';
 
-
         echo "Check find...<br>";
         $employee = Employee::find($employee->id+1);
 
@@ -45,6 +44,15 @@ class EmployeeController extends Controller
         foreach ($employees as $employee) {
             echo "ID ".$employee->id. ' '.$employee->firstname. ' '.$employee->lastname.'<br>';
         }
+
+
+       // $employee = Employee::findOrFail(501);
+       // var_dump($employee);
+
+        echo "<hr>";
+
+        $employee = Employee::find(501);
+        var_dump($employee);
 
         /*
         $count = 0;
