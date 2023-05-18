@@ -19,7 +19,17 @@ class EmployeeController extends Controller
 
         //var_dump($employee);
 
-        echo $employee->firstname. ' '.$employee->lastname.'<br>';
+        echo $employee->id. ' '. $employee->firstname. ' '.$employee->lastname.'<br>';
+
+
+        echo "Check find...<br>";
+        $employee = Employee::find($employee->id+1);
+
+        echo "Check find 497...<br>";
+        $employee = Employee::find(497);
+
+        echo $employee->id. ' '. $employee->firstname. ' '.$employee->lastname.'<br>';
+
 
         $employees = Employee::where('firstname', 'Elena')->get();
 
