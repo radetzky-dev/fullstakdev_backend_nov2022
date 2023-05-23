@@ -1,0 +1,12 @@
+1)
+login->[id utente] -> vedo tutti i libri -> scelgo singolo libro ->inserisco rating 
+
+
+2)
+[login admin]
+rotta web.php
+mostro un form
+[lista libri]
+[lista utenti]
+[voto 1-10 select]
+-> inserisco
