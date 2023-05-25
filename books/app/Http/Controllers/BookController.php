@@ -90,11 +90,7 @@ class BookController extends Controller
     {
         $users = User::all();
 
-        foreach ($users as $user) {
-            var_dump($user);
-        }
 
-        die();
-        return view('showbooks', []);
+        return view('showbooks', compact("users"));
     }
 }
