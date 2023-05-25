@@ -23,5 +23,7 @@ Route::get('/', function () {
 Route::get('insertbook', [BookController::class, 'showForm']);
 Route::post('store', [BookController::class, 'store'])->name("store");
 
+Route::get('show', [BookController::class, 'showBooks']);
+
 Route::get('insertrating', [RatingController::class, 'showForm']);
-Route::post('store', [RatingController::class, 'store'])->name("storerating");
+Route::post('store', [RatingController::class, 'storerating'])->name("storerating");

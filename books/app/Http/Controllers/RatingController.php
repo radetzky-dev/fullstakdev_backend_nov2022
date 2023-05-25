@@ -25,7 +25,16 @@ class RatingController extends Controller
 
     public function storerating(Request $request)
     {
-        echo "qui";
+
+        $rating = Rating::firstOrCreate(
+            [
+                'user_id' => $request->user_id,
+                'book_id' => $request->book_id,
+                'rating' => $request->rating,
+            ]
+        );
+
+        return new RatingResource($rating);
     }
 
     public function showForm()

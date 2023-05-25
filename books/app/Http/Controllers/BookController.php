@@ -73,11 +73,28 @@ class BookController extends Controller
 
         return response()->json(null, 204);
     }
-
+    
+    /**
+     * showForm
+     *
+     * @return void
+     */
     public function showForm()
     {
         $users = User::all();
 
         return view('insertbook', compact("users"));
+    }
+
+    public function showBooks()
+    {
+        $users = User::all();
+
+        foreach ($users as $user) {
+            var_dump($user);
+        }
+
+        die();
+        return view('showbooks', []);
     }
 }
