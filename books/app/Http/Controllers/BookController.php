@@ -62,4 +62,10 @@ class BookController extends Controller
 
         return response()->json(null, 204);
     }
+
+
+    public function showForm()
+    {
+        return view('insertbook', []);
+    }
 }
