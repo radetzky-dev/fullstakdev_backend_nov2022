@@ -90,7 +90,6 @@ class BookController extends Controller
     {
         $users = User::all();
 
-
         return view('showbooks', compact("users"));
     }
 }

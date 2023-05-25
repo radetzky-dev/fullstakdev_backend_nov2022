@@ -26,11 +26,35 @@
                     @endforeach
                 </select>
             </div>
+
+
+
             <div class="form-group">
                 <label for="book_id">Scegli libro</label>
                 <select type="book_id" class="form-control" name="book_id">
                     @foreach ($books as $book)
-                        <option value="{{ $book->id }}">{{ $book->title }}</option>
+                        @php
+                        $media=0;
+                            $ratings = $book->ratings;
+                     
+                            $voti=0;
+                            $elementi=0;
+                                foreach ($ratings as $rate) {
+                                 //   echo $rate->rating;
+                                    $voti = $voti + $rate->rating;
+                                 //   echo "Somma ". $voti.'<br>';
+                                    $elementi++;
+                                  
+                                }
+                                if (($elementi > 0) && ($voti >0))
+                                {
+                                    $media = $voti/$elementi;
+                                }
+                                
+                            
+                        @endphp
+
+                        <option value="{{ $book->id }}">{{ $book->title }} media : {{ $media }}</option>
                     @endforeach
                 </select>
             </div>

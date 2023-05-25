@@ -1,24 +1,10 @@
 <h2>Inserisci nuovo libro</h2>
 
 
-
-<style>
-    .container {
-        max-width: 450px;
-    }
-
-    .push-top {
-        margin-top: 50px;
-    }
-</style>
-
 <div class="card push-top">
     <div class="card-header">
         Inserisci libro
     </div>
-
-
-
 
     <div class="card-body">
         <form method="post" action="{{ route('store') }}">
@@ -38,9 +24,7 @@
                         <option value="{{ $user->id}}">{{ $user->name }}</option>
                     @endforeach
                 </select>
-
             </div>
-
 
             <button type="submit" class="btn btn-block btn-danger">Inserisci libro</button>
         </form>

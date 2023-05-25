@@ -8,7 +8,6 @@
                 foreach ($ratings as $rate) {
                     echo($user->name .' - '.$book->title .'  voto:'. $rate->rating.'<br>');
                 }
-                
             }
         }
 @endphp
