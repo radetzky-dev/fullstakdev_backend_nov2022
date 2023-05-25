@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\RatingResource;
 use App\Models\Book;
 use App\Models\Rating;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
@@ -20,5 +21,18 @@ class RatingController extends Controller
         );
 
         return new RatingResource($rating);
+    }
+
+    public function storerating(Request $request)
+    {
+        echo "qui";
+    }
+
+    public function showForm()
+    {
+        $users = User::all();
+        $books = Book::all();
+
+        return view('insertrating', compact("users", "books"));
     }
 }

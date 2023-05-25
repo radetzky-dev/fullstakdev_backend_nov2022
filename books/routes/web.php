@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('insertbook', [BookController::class, 'showForm']);
+Route::post('store', [BookController::class, 'store'])->name("store");
+
+Route::get('insertrating', [RatingController::class, 'showForm']);
+Route::post('store', [RatingController::class, 'store'])->name("storerating");
