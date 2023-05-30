@@ -4,7 +4,8 @@ login->[id utente] -> vedo tutti i libri -> scelgo singolo libro ->inserisco rat
 
 2)
 AZIONI                      TO DO
-rotta web.php               inserirla e modificare controller -> service ([lista libri],[lista utenti])
+RATING
+rotta web.php               inserirla e modificare controller -> service ([lista utenti],[lista libri])
 mostro un form              creare vista col form $data che continere (select [lista libri],[lista utenti])
 -> inserisco
 rotta web.php               chiama il controller Rating e inserisce il dato
