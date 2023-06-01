@@ -56,9 +56,9 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         // check if currently authenticated user is the owner of the book
-        if ($request->user()->id !== $book->user_id) {
+       /* if ($request->user()->id !== $book->user_id) {
             return response()->json(['error' => 'You can only edit your own books.'], 403);
-        }
+        }*/
         $book->update($request->only(['title', 'description']));
 
         return new BookResource($book);
